@@ -6,25 +6,18 @@
     <meta name="keywords" content="HTML">
     <meta name="description" content="Lorem ipsum dolor sit amet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Первое задание</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.svg">
-    <style>
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            padding: 10px;
-        }
-    </style>
+    <title>Первое задание</title>
 </head>
 
 <body>
 
-    <header>
+    <header id="header">
         <h1>ЗАГОЛОВОК С ГЛУБОКИМ СМЫСЛОМ</h1>
     </header>
-    
-    <nav>
+
+    <nav id="nav">
         <h2>Это навигация</h2>
         <ul>
           <li><a href="pages/page1.html">Lorem ipsum dolor sit amet</a></li>
@@ -63,8 +56,12 @@
             </section>
 
             <section id="article-section">
-                <article>
-                    <h2>Это статья</h2>
+                
+                    <h2>Это статья и aside</h2>
+                    <aside>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fugit distinctio possimus unde cupiditate sed maxime minus nulla.</p>
+                    </aside>
+                    <article>
                     <h3>Заголовок статьи</h3>
                     <p><strong>Lorem ipsum dolor sit amet</strong> consectetur adipisicing elit. Neque aspernatur
                         voluptate cupiditate<sup>[1]</sup>
@@ -86,62 +83,71 @@
                 <form action="#">
                     <fieldset>
                         <legend>Получатель</legend>
-                        <label for="fullname-field">Имя и фамилия:</label><br>
+                        <label for="fullname-field">Имя и фамилия</label><br>
                         <input type="text" name="fullname" id="fullname-field" required /><br>
 
-                        <label for="phone-field">Телефон для связи:</label><br>
+                        <label for="phone-field">Телефон для связи</label><br>
                         <input type="tel" name="phone" id="phone-field" placeholder="+7 (999) 999-99-99" required /><br>
 
-                        <label for="email-field">Электронная почта:</label><br>
+                        <label for="email-field">Электропочта</label><br>
                         <input type="email" name="email" id="email-field" placeholder="someemail@example.com"
                             required /><br>
 
-                        <label for="bday-field">Дата рождения:</label><br>
-                        <input type="date" name="bday" id="bday-field" max="2021-09-13" required /><br>
+                        <label for="bday-field">Дата рождения</label><br>
+                        <input type="date" name="bday" id="bday-field" max="2021-09-13" required /><br><br>
 
                         <label>
                             <input type="checkbox" name="agreement" />
-                            Согласен с обработкой персональных данных </label><br><br>
+                            Согласен с обработкой персональных данных </label><br>
                         <input type="submit" value="Сохранить">
                         <input type="reset">
                     </fieldset>
                 </form>
                 <form action="#">
                     <fieldset>
-                        <legend>Доставка и оплата:</legend>
-                        <label>Способ оплаты:</label><br>
+                        <legend>Доставка и оплата</legend>
+                        <label>Способ оплаты</label><br>
                         <input type="radio" id="cash" name="payment-method" value="Наличными при получении">
                         <label for="cash">Наличными при получении</label><br>
                         <input type="radio" id="card" name="payment-method" value="Картой при получении">
-                        <label for="card">Картой при получении</label><br>
-                        <label for="delivery">Способ доставки:</label><br>
+                        <label for="card">Картой при получении</label><br><br>
+                        <label for="delivery">Способ доставки</label><br>
                         <select id="delivery" name="delivery">
                             <option value="Самовывоз">Заберу в пункте выдачи</option>
                             <option value="Курьер">Курьер</option>
                             <option value="Почта">Почта</option>
-                        </select><br>
+                        </select><br><br>
                         <label for="message">Дополнительная информация и пожелания:</label><br>
-                        <textarea name="message" rows="10" cols="60" id="message"></textarea><br><br>
+                        <textarea name="message" id="message" wrap="soft" maxlength="200" cols="50" rows="5"></textarea><br>
                         <input type="submit" value="Сохранить">
                     </fieldset>
                 </form>
             </section>
+            
+            <div id="img-btn-section-title">
+                <h2>Это картинка и кнопка</h2>
+            </div>
 
-            <section id="img-btn-section">
-                <h2>Это изображение и кнопка:</h1>
-                    <img style="width: 50%;"
+            <section id="img-btn-section"> 
+                    <img 
                         src="https://img.gazeta.ru/files3/562/13420562/Depositphotos_108396704_l-2015-pic4_zoom-1500x1500-337.jpg"
-                        alt="Изображение усердной деятельности"><br>
-                    <button type="button" onclick="alert('Одного раза достаточно!')" style="width: 50%;">Кнопка</button>
+                        alt="Изображение усердной деятельности">
+                    <button type="button" onclick="alert('Потверждено!')">Потвердить</button>
             </section>
+
         </section>
     </main>
 
-    <footer>
+    <footer id="footer">
         <address>
-            <p><b>Сделал:</b> <a href="https://github.com/xreyaf" target="_blank">Поляков Роман</a></p>
-            <p>Контактная информация: <a href="mailto:someemail@example.com">someemail@example.com</a></p>
-        </address>
+            <p>cделал <a href="https://github.com/xreyaf" target="_blank">@xreyaf</a><br>
+            <a href="mailto:someemail@example.com">someemail@example.com</a></p>
+        </address>  
+        &copy;
+        <span id="copyright">
+            Copyright
+            <script>document.write(new Date().getFullYear())</script>
+        </span>
     </footer>
 
 </body>
