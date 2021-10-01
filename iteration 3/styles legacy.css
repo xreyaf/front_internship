@@ -121,7 +121,7 @@ button:hover {
 
 .legacy {
 	width: 100%;
-	border-spacing: 20px 20px;
+	border-spacing: 10px 40px;
 }
 
 .red {
@@ -133,8 +133,10 @@ button:hover {
 }
 
 .green {
+	width: 100px;
 	border: green 3px solid;
 }
+
 .pink {
 	border: pink 3px solid;
 }

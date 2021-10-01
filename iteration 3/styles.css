@@ -19,12 +19,14 @@ h2 {
 
 header {
 	padding: px 70px;
+	border: red 3px solid;
+	grid-area: red;
 	text-align: center;
 	background: white;
 }
 
 nav {
-	margin: 10px 70px;
+	margin: 1em;
 	padding: 10px;
 	border-radius: 24px;
 	background: #ecf0f1;
@@ -34,16 +36,7 @@ main {
 	padding: 0px 70px;
 }
 
-footer {
-	padding: 30px 70px;
-	margin-top: 60px;
-	text-align: center;
-	background: #ecf0f1;
-	color: black;
-}
-
 .table-section {
-	margin: 10px 0px;
 	padding: 10px;
 	border-radius: 24px;
 	background: #f7f9f9;
@@ -59,25 +52,16 @@ td {
 
 .article-section {
 	padding: 10px;
-	margin: 10px 0px;
 	border-radius: 24px;
 	background: #f7f9f9;
 }
 
 article {
 	padding: 15px;
-	margin-right: 240px;
+	/* margin-right: 240px; */
 	border-radius: 12px;
-	display: block;
+	/* display: block; */
 	background: #ecf0f1;
-}
-
-aside {
-	padding: 15px;
-	width: 200px;
-	border-radius: 12px;
-	float: right;
-	background: #f0f0f0;
 }
 
 article h3 {
@@ -85,7 +69,6 @@ article h3 {
 }
 
 .forms-section {
-	margin: 10px 0px;
 	padding: 10px;
 	border-radius: 24px;
 	background: #f7f9f9;
@@ -107,21 +90,6 @@ fieldset input {
 	margin: 5px 0px;
 	padding: 8px 0px 8px 0px;
 	text-align: left;
-}
-
-fieldset textarea {
-	resize: none;
-	overflow: auto;
-}
-fieldset select {
-	margin: 5px 0px;
-	padding: 8px 0px;
-}
-
-.img-btn-section-title {
-	padding: 10px;
-	border-radius: 24px;
-	background: #f7f9f9;
 }
 
 .img-btn-section {
@@ -146,7 +114,7 @@ img {
 
 button {
 	width: 100%;
-	padding: 20px 0px;
+	padding: 5px 0px;
 	border: none;
 	border-radius: 0px 0px 24px 24px;
 	border-color: transparent;
@@ -158,4 +126,113 @@ button {
 button:hover {
 	transition: all 0.3s ease-in-out;
 	color: #1b4f72;
+}
+
+@media screen and (min-width: 1280px) {
+	.wrapper {
+		height: 99vh;
+		margin: 1em;
+		display: grid;
+		grid-template-areas:
+			"red yellow"
+			"green-and-pink yellow";
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 2fr 1fr;
+		grid-gap: 1em;
+		transition: all 2s;
+	}
+
+	.included-grid {
+		display: grid;
+		grid-area: green-and-pink;
+		grid-template-columns: 400px 1fr;
+		grid-template-rows: 1fr;
+		grid-gap: 1em;
+	}
+
+	.flex-container {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-around;
+		align-content: stretch;
+	}
+	#flex-item {
+		flex: 1 1;
+		border: green 3px solid;
+	}
+
+	#flex-item:first-child {
+		margin-bottom: 40px;
+	}
+	#flex-item:last-child {
+		margin-top: 40px;
+	}
+
+	.icluded {
+		position: relative;
+		border: pink 3px solid;
+	}
+
+	.icluded-sticky {
+		top: 0;
+		padding: 0;
+		position: sticky;
+		grid-area: yellow;
+		border: yellow 3px solid;
+	}
+}
+
+@media screen and (max-width: 1279px) {
+	.wrapper {
+		height: 99vh;
+		margin: 1em;
+		display: grid;
+		grid-template-areas:
+			"yellow"
+			"red"
+			"green-and-pink";
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: 1fr;
+		grid-gap: 1em;
+		transition: all 1s;
+	}
+
+	.included-grid {
+		display: grid;
+		grid-area: green-and-pink;
+		grid-template-columns: 1fr;
+		grid-gap: 1em;
+	}
+
+	.flex-container {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		align-content: stretch;
+	}
+	#flex-item {
+		flex: 1 1;
+		border: green 3px solid;
+	}
+
+	#flex-item:first-child {
+		margin-right: 40px;
+	}
+	#flex-item:last-child {
+		margin-left: 40px;
+	}
+
+	.icluded {
+		position: relative;
+		border: pink 3px solid;
+	}
+
+	.icluded-sticky {
+		top: 0;
+		padding: 0;
+		position: sticky;
+		grid-area: yellow;
+		border: yellow 3px solid;
+		background: white;
+	}
 }
