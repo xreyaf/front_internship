@@ -17,13 +17,12 @@ h2 {
 	font-weight: bold;
 }
 
-header {
-	padding: 70px;
+.header {
 	text-align: center;
 	background: white;
 }
 
-nav {
+.nav {
 	padding: 10px;
 	border-radius: 24px;
 	background: #ecf0f1;
