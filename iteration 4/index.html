@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div>
+            100 * 12 =
+            <span id="mul"></span><br/>
+            <button
+                onclick="document.getElementById('mul').innerHTML=mul(100,12)"
+                id="button"></button>
+        </div>
+        <hr/>
+        <div>
+            firstString + secondString =
+            <span id="cnct"></span><br/>
+            <button
+                onclick="document.getElementById('cnct').innerHTML=сoncat('firstString','secondString')">
+                Join str
+            </button>
+        </div>
+        <hr/>
+        <div >
+            Handling:
+            <span id="logic"></span><br/>
+            <button onclick="logic()">Result</button>
+        </div>
+        <hr/>
+        <div>
+            <input type="text" id="focus"><br>
+            Output:
+            <span id="output"></span>
+        </div>
+        <script type="text/javascript">
+            let elem = document.getElementById("button");
+            elem.innerText = "Get mul";
+            elem.onmouseover = function () {
+                elem.style.border = "none";
+                elem.style.backgroundColor = "skyblue";
+                elem.style.color = "white";
+            };
+
+            elem.onmouseout = function () {
+                elem.style.border = "";
+                elem.style.backgroundColor = "";
+                elem.style.color = "";
+            };
+
+            let inputFocus = document.getElementById("focus");
+            inputFocus.onfocus = function () {
+                inputFocus.value = "OnFocus";
+            };
+
+            inputFocus.oninput = function () {
+                document
+                    .getElementById("output")
+                    .innerText = inputFocus.value;
+            };
+        </script>
+    </body>
+</html>
