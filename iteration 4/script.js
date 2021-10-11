@@ -1,4 +1,4 @@
-let mul = (a, b) => a * b;
+let calcMul = (a, b) => a * b;
 let сoncat = (a, b) => {
 	console.log(`Concat of ${a} and ${b} is "${a + b}"`);
 	console.log('"It\'s done"');
@@ -17,8 +17,8 @@ function logic() {
 		if (a != b) {
 			setTimeout(() => alert(`"false! a = ${a}, b = ${b}"`), 1000);
 		}
-	} catch (error) {
-		console.log(error.name);
-		console.log(error.message);
+	} catch (e) {
+		console.log(e.name);
+		console.log(e.message);
 	}
 }
