@@ -1,8 +1,8 @@
 "use strict";
 
-let сoncat = () => {
-	let a = document.getElementById("firstString").value;
-	let b = document.getElementById("secondString").value;
+const сoncat = () => {
+	const a = document.getElementById("firstString").value;
+	const b = document.getElementById("secondString").value;
 	console.log('"It\'s done"');
 	console.log(typeof a);
 	console.log(`Concat of ${a} and ${b} is "${a + b}"`);
@@ -66,12 +66,12 @@ user.getFirstName();
 user.getAge();
 user.getAgeArrow();
 
-let notArrow = function (a, b) {
+const notArrow = function (a, b) {
 	console.log(arguments);
 	return a + " " + b;
 };
 
-let Arrow = (...args) => {
+const Arrow = (...args) => {
 	console.log(args);
 	return args[0] + " " + args[1];
 };
@@ -92,8 +92,8 @@ const evens = [2, 4, 6, 8];
 console.log([...odds, 1337, ...evens]);
 const numbers = [5, 123, 52, 4, 10];
 console.log(Math.max(...numbers));
-let sumOdds = (a, ...rest) => a + rest.reduce((a, i) => a + i, 0);
-let sumEvens = (a = 0, b = 0, ...rest) => {
+const sumOdds = (a, ...rest) => a + rest.reduce((a, i) => a + i, 0);
+const sumEvens = (a = 0, b = 0, ...rest) => {
 	let result = a + b;
 	for (let r of rest) {
 		result += r;
@@ -200,12 +200,12 @@ class Trigonometry extends Calculator {
 document.querySelector("#result").readOnly = true;
 const btn = document.querySelector("[data-calculate]");
 btn.addEventListener("click", () => {
-	let previousOperand = Number(document.getElementById("firstOperand").value);
-	let currenOperand = Number(document.getElementById("secondOperand").value);
+	const previousOperand = Number(document.getElementById("firstOperand").value);
+	const currenOperand = Number(document.getElementById("secondOperand").value);
 
-	let operationValue = document.querySelector("[data-operation]").value;
+	const operationValue = document.querySelector("[data-operation]").value;
 
-	let resultValue = document.querySelector("#result");
+	const resultValue = document.querySelector("#result");
 
 	const calculator = new Calculator(
 		previousOperand,
@@ -218,12 +218,12 @@ btn.addEventListener("click", () => {
 
 const btnChild = document.querySelector("[data-calculate-child]");
 btnChild.addEventListener("click", () => {
-	let previousOperand = Number(document.getElementById("firstOperand").value);
-	let currenOperand = Number(document.getElementById("secondOperand").value);
+	const previousOperand = Number(document.getElementById("firstOperand").value);
+	const currenOperand = Number(document.getElementById("secondOperand").value);
 
-	let operationValue = document.querySelector("[data-operation]").value;
+	const operationValue = document.querySelector("[data-operation]").value;
 
-	let resultValue = document.querySelector("#result");
+	const resultValue = document.querySelector("#result");
 
 	const trigonometry = new Trigonometry(
 		previousOperand,
@@ -233,3 +233,84 @@ btnChild.addEventListener("click", () => {
 	);
 	trigonometry.computeNew();
 });
+
+//iteration 6
+
+window.onload = () => {
+	const urlBtn = document.querySelector(".urlBtn");
+	const urlP = document.querySelector(".urlP");
+	const currentURL = window.location.href;
+	//const currentURL = document.URL;
+	//const currentURL = document.location.href;
+	urlBtn.addEventListener("click", () => {
+		urlP.innerText = currentURL;
+	});
+
+	const getH = document.querySelector(".getHistory");
+	const navH = document.querySelector(".navHistory");
+	const changeH = document.querySelector(".changeHistory");
+
+	getH.addEventListener("click", () => {
+		urlP.innerText = "Количество переходов: " + history.length;
+	});
+
+	navH.addEventListener("click", () => {
+		history.go(1);
+	});
+
+	changeH.addEventListener("click", () => {
+		history.pushState(
+			null,
+			"Страница 2",
+			"http://127.0.0.1:5500/iteration%205-6/pages/page2.html"
+		);
+		setTimeout(() => {
+			history.go(0);
+		}, 2500);
+	});
+
+	const getCk = document.querySelector(".getCookie");
+	const setCk = document.querySelector(".setCookie");
+	const changeCk = document.querySelector(".changeCookie");
+
+	getCk.addEventListener("click", () => {
+		console.log("Cookie: " + document.cookie);
+	});
+	setCk.addEventListener("click", () => {
+		document.cookie =
+			"name=Roman; expires=" + new Date(2022, 0, 1).toUTCString();
+		document.cookie =
+			"lastName=Polyakov;  expires=" + new Date(2022, 0, 1).toUTCString();
+	});
+	changeCk.addEventListener("click", () => {
+		document.cookie = "name=Romul; max-age=10";
+	});
+
+	const setLcl = document.querySelector(".setLocal");
+	const getLcl = document.querySelector(".getLocal");
+	const setSsn = document.querySelector(".setSession");
+	const getSsn = document.querySelector(".getSession");
+	const clr = document.querySelector(".clear");
+	setLcl.addEventListener("click", () => {
+		localStorage.setItem("user", JSON.stringify(user));
+	});
+	getLcl.addEventListener("click", () => {
+		const userLS = JSON.parse(localStorage.getItem("user"));
+		//debugger;
+		console.log(userLS);
+	});
+	setSsn.addEventListener("click", () => {
+		sessionStorage.setItem("SessionInfo", "Some session information");
+	});
+	getSsn.addEventListener("click", () => {
+		console.log(sessionStorage.getItem("SessionInfo"));
+	});
+	clr.addEventListener("click", () => {
+		localStorage.clear();
+		sessionStorage.clear();
+	});
+};
+
+// window.onbeforeunload = () => {
+// 	return false;
+// };
