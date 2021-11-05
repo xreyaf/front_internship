@@ -234,14 +234,13 @@ btnChild.addEventListener("click", () => {
 	trigonometry.computeNew();
 });
 
-//iteration 6
+/*__iteration 6__*/
 
 window.onload = () => {
 	const urlBtn = document.querySelector(".urlBtn");
 	const urlP = document.querySelector(".urlP");
 	const currentURL = window.location.href;
-	//const currentURL = document.URL;
-	//const currentURL = document.location.href;
+	//const currentURL = document.URL; const currentURL = document.location.href;
 	urlBtn.addEventListener("click", () => {
 		urlP.innerText = currentURL;
 	});
@@ -255,18 +254,26 @@ window.onload = () => {
 	});
 
 	navH.addEventListener("click", () => {
-		history.go(1);
+		try {
+			history.go(1);
+		} catch (e) {
+			alert("Не было переходов");
+			console.log(e.message);
+		}
 	});
 
 	changeH.addEventListener("click", () => {
-		history.pushState(
-			null,
-			"Страница 2",
-			"http://127.0.0.1:5500/iteration%205-6/pages/page2.html"
-		);
-		setTimeout(() => {
+		try {
+			history.pushState(
+				null,
+				"Страница 2",
+				"http://127.0.0.1:5500/pages/page2.html"
+			);
 			history.go(0);
-		}, 2500);
+		} catch (e) {
+			alert("Не получилось :с");
+			console.log(e.message);
+		}
 	});
 
 	const getCk = document.querySelector(".getCookie");
@@ -309,8 +316,43 @@ window.onload = () => {
 		localStorage.clear();
 		sessionStorage.clear();
 	});
+
+	const getLct = document.querySelector(".getLocation");
+	const getAppInfo = document.querySelector(".getAppInfo");
+	const inf = document.querySelector(".info");
+	getLct.addEventListener("click", () => {
+		navigator.geolocation.getCurrentPosition(
+			(res) => {
+				console.log(
+					"Текущее местоположение: " +
+						res.coords.latitude +
+						", " +
+						res.coords.longitude
+				);
+				const LINK = `https://yandex.ru/maps/?ll=${res.coords.longitude},${res.coords.latitude}&z=12`;
+				inf.innerHTML = `<a  href="${LINK}" target="_blank">Показать на карте</a>`;
+			},
+			() => {
+				console.log("Произошла ошибка при определении местоположения!");
+			}
+		);
+	});
+
+	getAppInfo.addEventListener("click", () => {
+		inf.innerText = navigator.userAgent;
+	});
 };
 
-// window.onbeforeunload = () => {
-// 	return false;
-// };
+// window.onbeforeunload = () => { 	return false; };
+
+const showMenu = (toggleId, navId) => {
+	const toggle = document.getElementById(toggleId),
+		nav = document.getElementById(navId);
+
+	if (toggle && nav) {
+		toggle.addEventListener("click", () => {
+			nav.classList.toggle("show-menu");
+		});
+	}
+};
+showMenu("nav-toogle", "nav-menu");

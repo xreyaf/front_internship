@@ -1,0 +1,21 @@
+.article {
+	&__aside {
+		width: 30%;
+		float: right;
+	}
+
+	&__data {
+		display: block;
+		margin-right: 35%;
+	}
+
+	&__title {
+		font-size: var(--biggest-font-size);
+		font-weight: var(--font-bold);
+		margin-bottom: var(--mb-0-75);
+	}
+
+	&__data h1 {
+		text-align: center;
+	}
+}
