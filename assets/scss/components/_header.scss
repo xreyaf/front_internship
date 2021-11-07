@@ -43,10 +43,7 @@
 	&__toggle {
 		color: var(--title-color);
 		font-weight: var(--font-semi-bold);
-	}
-	&__toggle {
-		font-size: 1.3rem;
-		cursor: pointer;
+		font-size: var(--h3-font-size);
 	}
 }
 
@@ -73,9 +70,5 @@
 
 /* Change background header */
 .scroll-header {
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-.gr {
-	font-size: var(--h2-font-size);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

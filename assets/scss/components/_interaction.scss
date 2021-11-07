@@ -4,4 +4,36 @@
 		font-weight: var(--font-bold);
 		margin-bottom: var(--mb-0-75);
 	}
+	&__label {
+		font-size: var(--h3-font-size);
+	}
+
+	&__text {
+		padding: 0.7rem 0.2rem;
+		margin-bottom: var(--mb-0-5);
+		width: 100%;
+		border-radius: 0.5rem;
+		background-color: var(--first-color-light);
+		border: none;
+		font-size: var(--normal-font-size);
+		font-family: var(--body-font);
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__button {
+		margin: 0.5rem 0.15rem 0.5rem 0;
+	}
+	& select {
+		border-radius: 0.5rem;
+		border-color: var(--first-color);
+		margin: 5px 0;
+		padding: 0.5rem 0.2rem;
+		font-family: var(--body-font);
+		font-size: var(--normal-font-size);
+		&:focus {
+			outline: none;
+		}
+	}
 }

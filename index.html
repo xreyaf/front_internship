@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="nav__toogle" id="nav-toogle">
-                    <i class='bx bx-grid-alt gr'></i>
+                    <i class='bx bx-grid-alt'></i>
                 </div>
             </nav>
         </header>
@@ -166,96 +166,155 @@
             </section>
 
             <section class="forms section">
-                <div class="forms__container container">
+                <div class="forms__container container ">
                     <h1 class="forms__title">Это формы для заполнения</h1>
-                    <form action="#">
-                        <fieldset>
-                            <legend>Получатель</legend>
-                            <label for="fullname-field">Имя и фамилия</label><br>
-                            <input type="text" name="fullname" id="fullname-field" required/><br>
+                    <div class="forms__grid grid">
+                        <form class="forms__form" action="#">
+                            <fieldset>
+                                <legend>Получатель</legend>
+                                <label for="fullname-field">Имя и фамилия</label><br>
+                                <input
+                                    class="forms__text"
+                                    type="text"
+                                    name="fullname"
+                                    id="fullname-field"
+                                    required/><br>
 
-                            <label for="phone-field">Телефон для связи</label><br>
-                            <input
-                                type="tel"
-                                name="phone"
-                                id="phone-field"
-                                placeholder="+7 (999) 999-99-99"
-                                required/><br>
+                                <label for="phone-field">Телефон для связи</label><br>
+                                <input
+                                    class="forms__text"
+                                    type="tel"
+                                    name="phone"
+                                    id="phone-field"
+                                    placeholder="+7 (999) 999-99-99"
+                                    required/><br>
 
-                            <label for="email-field">Электропочта</label><br>
-                            <input
-                                type="email"
-                                name="email"
-                                id="email-field"
-                                placeholder="someemail@example.com"
-                                required/><br>
+                                <label for="email-field">Электропочта</label><br>
+                                <input
+                                    class="forms__text"
+                                    type="email"
+                                    name="email"
+                                    id="email-field"
+                                    placeholder="someemail@example.com"
+                                    required/><br>
 
-                            <label for="bday-field">Дата рождения</label><br>
-                            <input type="date" name="bday" id="bday-field" max="2021-09-13" required/><br><br>
+                                <label for="bday-field">Дата рождения</label><br>
+                                <input
+                                    class="forms__text"
+                                    type="date"
+                                    name="bday"
+                                    id="bday-field"
+                                    max="2021-09-13"
+                                    required/><br><br>
 
-                            <label>
-                                <input type="checkbox" name="agreement"/>
-                                Согласен с обработкой персональных данных
-                            </label><br>
-                            <input type="submit" value="Сохранить">
-                            <input type="reset">
-                        </fieldset>
-                    </form>
-                    <form action="#">
-                        <fieldset>
-                            <legend>Доставка и оплата</legend>
-                            <label>Способ оплаты</label><br>
-                            <input
-                                type="radio"
-                                id="cash"
-                                name="payment-method"
-                                value="Наличными при получении">
-                            <label for="cash">Наличными при получении</label><br>
-                            <input
-                                type="radio"
-                                id="card"
-                                name="payment-method"
-                                value="Картой при получении">
-                            <label for="card">Картой при получении</label><br><br>
-                            <label for="delivery">Способ доставки</label><br>
-                            <select id="delivery" name="delivery">
-                                <option value="Самовывоз">Заберу в пункте выдачи</option>
-                                <option value="Курьер">Курьер</option>
-                                <option value="Почта">Почта</option>
-                            </select><br><br>
-                            <label for="message">Дополнительная информация и пожелания:</label><br>
-                            <textarea
-                                name="message"
-                                id="message"
-                                wrap="soft"
-                                maxlength="200"
-                                cols="50"
-                                rows="5"></textarea><br>
-                            <input type="submit" value="Сохранить">
-                        </fieldset>
-                    </form>
+                                <label>
+                                    <input type="checkbox" name="agreement"/>
+                                    Согласен с обработкой персональных данных
+                                </label><br>
+                                <input class="forms__button button" type="submit" value="Сохранить">
+                                <input class="forms__button button warning" type="reset">
+                            </fieldset>
+                        </form>
+                        <form class="forms__form" action="#">
+                            <fieldset>
+                                <legend>Доставка и оплата</legend>
+                                <label>Способ оплаты</label><br>
+                                <input
+                                    type="radio"
+                                    id="cash"
+                                    name="payment-method"
+                                    value="Наличными при получении">
+                                <label for="cash">Наличными при получении</label><br>
+                                <input
+                                    type="radio"
+                                    id="card"
+                                    name="payment-method"
+                                    value="Картой при получении">
+                                <label for="card">Картой при получении</label><br><br>
+                                <label for="delivery">Способ доставки</label><br>
+                                <select id="delivery" name="delivery">
+                                    <option value="Самовывоз">Заберу в пункте выдачи</option>
+                                    <option value="Курьер">Курьер</option>
+                                    <option value="Почта">Почта</option>
+                                </select><br><br>
+                                <label for="message">Пожелания:</label><br>
+                                <textarea name="message" id="message" wrap="soft" maxlength="200"></textarea><br>
+                                <input class="forms__button button" type="submit" value="Сохранить">
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </section>
 
-            <section class="picture section">
-                <div class="picture__container container">
-                    <h1 class="picture__title">Это картинка и кнопка</h1>
-                    <img
-                        class="picture__img"
-                        src="/assets/img/undraw_outdoor_adventure_re_j3b7.svg"
-                        alt="Пара людей на природе">
-                    <button id="btnUnImg" type="button" onclick="alert('Потверждено!')">Потвердить</button>
-
+            <section class="picture section container">
+                <h1 class="picture__title">Это картинка и кнопка</h1>
+                <div class="picture__container grid ">
+                    <div class="picture__data">
+                        <picture >
+                            <source srcset="/assets/img/undraw_outdoor_adventure_re_j3b7.svg">
+                            <img
+                                class="picture__img"
+                                srcset="/assets/img/undraw_outdoor_adventure_re_j3b7.svg"
+                                alt="Пара людей на природе">
+                        </picture>
+                        <p class="picture__description">Саша и Маша решили выбраться на природу.</p>
+                        <button
+                            class="picture__button button"
+                            type="button"
+                            onclick="alert('Потверждено!')">Потвердить</button>
+                    </div>
+                    <div class="picture__data">
+                        <picture >
+                            <source srcset="/assets/img/undraw_designer_re_5v95.svg">
+                            <img
+                                class="picture__img"
+                                srcset="/assets/img/undraw_designer_re_5v95.svg"
+                                alt="Дизайнер">
+                        </picture>
+                        <p class="picture__description">Дизайнер сидит и боготворит Adobe.</p>
+                        <button
+                            class="picture__button button"
+                            type="button"
+                            onclick="alert('Потверждено!')">Потвердить</button>
+                    </div>
+                    <div class="picture__data">
+                        <picture >
+                            <source srcset="/assets/img/undraw_gaming_re_cma2.svg">
+                            <img
+                                class="picture__img"
+                                srcset="/assets/img/undraw_gaming_re_cma2.svg"
+                                alt="Гейминг">
+                        </picture>
+                        <p class="picture__description">Надо было купить второй геймпад.</p>
+                        <button
+                            class="picture__button button"
+                            type="button"
+                            onclick="alert('Потверждено!')">Потвердить</button>
+                    </div>
+                    <div class="picture__data">
+                        <picture >
+                            <source srcset="/assets/img/undraw_lightbulb_moment_re_ulyo.svg">
+                            <img
+                                class="picture__img"
+                                srcset="/assets/img/undraw_lightbulb_moment_re_ulyo.svg"
+                                alt="Внезапное вдохновение">
+                        </picture>
+                        <p class="picture__description">Момент внезапного вдохновения.</p>
+                        <button
+                            class="picture__button button"
+                            type="button"
+                            onclick="alert('Потверждено!')">Потвердить</button>
+                    </div>
                 </div>
             </section>
 
             <section class="interaction section">
                 <div class="interaction__container container">
                     <h1 class="interaction__title">Секция взаимодействия</h1>
-                    <label>Первый операнд:</label><br>
-                    <input type="text" id="firstOperand"/><br/>
-                    <label>Второй операнд:</label><br>
-                    <input type="text" id="secondOperand"/><br/>
+                    <label class="interaction__label">Первый операнд:</label><br>
+                    <input class="interaction__text" type="text" id="firstOperand"/><br/>
+                    <label class="interaction__label">Второй операнд:</label><br>
+                    <input class="interaction__text" type="text" id="secondOperand"/><br/>
 
                     <select data-operation>
                         <option value="+">+</option>
@@ -266,49 +325,49 @@
                         <option value="%">%</option>
                     </select><br/>
 
-                    <button data-calculate>calculate</button><br/>
-                    <button data-calculate-child>calculate childClass</button><br/>
-                    <label>Результат:</label><br>
-                    <input type="text" id="result"/><br/><br/>
+                    <button class="interaction__button button" data-calculate>calculate</button><br/>
+                    <button class="interaction__button button" data-calculate-child>calculate childClass</button><br/>
+                    <label class="interaction__label">Результат:</label><br>
+                    <input class="interaction__text" type="text" id="result"/><br/><br/>
 
-                    <label>Введите первую строку:</label><br>
-                    <input type="text" id="firstString"/><br/>
-                    <label>Введите вторую строку:</label><br>
-                    <input type="text" id="secondString"/><br/>
+                    <label class="interaction__label">Введите первую строку:</label><br>
+                    <input class="interaction__text" type="text" id="firstString"/><br/>
+                    <label class="interaction__label">Введите вторую строку:</label><br>
+                    <input class="interaction__text" type="text" id="secondString"/><br/>
                     <span id="joinedStr"></span><br/><br/>
 
-                    <label>Изменение контента:</label><br>
-                    <input type="text" id="focusInput"><br/>
+                    <label class="interaction__label">Изменение контента:</label><br>
+                    <input class="interaction__text" type="text" id="focusInput"><br/>
                     <span>Output:
                         <span id="output"></span>
                     </span>
                     <br/><br/>
-                    <label>Обработка логических операций</label><br>
-                    <button onclick="logic()">гогого</button>
+                    <label class="interaction__label">Обработка логических операций</label><br>
+                    <button class="interaction__button button" onclick="logic()">гогого</button>
                     <br/><br/>
-                    <label>Получение текущего URL</label><br>
-                    <button class="urlBtn">Получить URL</button>
+                    <label class="interaction__label">Получение текущего URL</label><br>
+                    <button class="urlBtn interaction__button button">Получить URL</button>
                     <p class='urlP'></p>
-                    <label>Объект history</label><br>
-                    <button class="getHistory">Получить</button>
-                    <button class="navHistory">Перейти</button>
-                    <button class="changeHistory">Изменить</button>
+                    <label class="interaction__label">Объект history</label><br>
+                    <button class="getHistory interaction__button button">Получить</button>
+                    <button class="navHistory interaction__button button">Перейти</button>
+                    <button class="changeHistory interaction__button button">Изменить</button>
                     <br/><br/>
-                    <label>Cookie</label><br>
-                    <button class="setCookie">Запись</button>
-                    <button class="getCookie">Чтение</button>
-                    <button class="changeCookie">Изменить</button>
+                    <label class="interaction__label">Cookie</label><br>
+                    <button class="setCookie interaction__button button">Запись</button>
+                    <button class="getCookie interaction__button button">Чтение</button>
+                    <button class="changeCookie interaction__button button">Изменить</button>
                     <br/><br/>
-                    <label>LocalStorage & SessionStorage</label><br>
-                    <button class="setLocal">Запись LocalStorage</button>
-                    <button class="getLocal">Чтение LocalStorage</button><br/>
-                    <button class="setSession">Запись SessionStorage</button>
-                    <button class="getSession">Чтение SessionStorage</button>
-                    <button class="clear">Очистить всё</button>
+                    <label class="interaction__label">LocalStorage & SessionStorage</label><br>
+                    <button class="setLocal interaction__button button">Запись LocalStorage</button>
+                    <button class="getLocal interaction__button button">Чтение LocalStorage</button><br/>
+                    <button class="setSession interaction__button button">Запись SessionStorage</button>
+                    <button class="getSession interaction__button button">Чтение SessionStorage</button>
+                    <button class="clear button warning">Очистить всё</button>
                     <br/><br/>
-                    <label>Navigator</label><br>
-                    <button class="getLocation" href="#">Определить местоположение</button>
-                    <button class="getAppInfo">Получить информацию</button><br/>
+                    <label class="interaction__label">Navigator</label><br>
+                    <button class="getLocation  interaction__button button" href="#">Определить местоположение</button>
+                    <button class="getAppInfo interaction__button button">Получить информацию</button><br/>
                     <p class='info'></p>
                 </div>
             </section>
@@ -317,53 +376,44 @@
 
         <footer class="footer section">
             <div class="footer__container container">
-                <div class="footer__content">
-                    <h3 class="footer__title">Our Services</h3>
-                    <ul class="footer__links">
-                        <li>
-                            <a href="#home" class="footer__link">Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#article" class="footer__link">Discounts</a>
-                        </li>
-                        <li>
-                            <a href="#" class="footer__link">Report a bug</a>
-                        </li>
-                        <li>
-                            <a href="#" class="footer__link">Terms of Service</a>
-                        </li>
-                    </ul>
-                </div>
+
                 <div class="footer__content">
 
                     <a href="https://github.com/xreyaf" target="_blank" class="footer__social-link">
                         <i class='bx bxl-github '></i>
                     </a>
-                    <a href="#" class="footer__social-link">
+                    <a href="https://vk.com" target="_blank" class="footer__social-link">
                         <i class='bx bxl-vk'></i>
                     </a>
-                    <a href="#" class="footer__social-link">
+                    <a href="https://twitter.com" target="_blank" class="footer__social-link">
                         <i class='bx bxl-twitter'></i>
                     </a>
-                    <a href="#" class="footer__social-link">
+                    <a href="https://www.instagram.com" target="_blank" class="footer__social-link">
                         <i class='bx bxl-instagram-alt'></i>
                     </a>
                     <address>
-
-                        <a href="mailto:myemail@example.com">myemail@example.com</a>
-
+                        <a class="footer__email" href="mailto:myemail@example.com">myemail@example.com</a>
                     </address>
-                    <span class="footer__copyright">
-                        &copy; xreyaf
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                    </span>
+
                 </div>
 
+                <P class="footer__copyright">
+                    Made with
+                    <svg
+                        viewBox="0 0 1792 1792"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="height: 0.8rem;">
+                        <path
+                            d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"
+                            fill="#e25555"></path>
+                    </svg>
+                    by xreyaf in
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                </P>
             </div>
-
         </footer>
         <script src="assets/js/scripts.js"></script>
         <script type="text/javascript">
@@ -372,7 +422,7 @@
             elem.innerText = "Объединить строки";
             function handler1() {
                 elem.style.border = "none";
-                elem.style.backgroundColor = "skyblue";
+                elem.style.backgroundColor = "#81AED5";
                 elem.style.color = "white";
                 elem.style.cursor = "pointer"
             };
