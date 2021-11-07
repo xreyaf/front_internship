@@ -35,8 +35,8 @@
                     </ul>
                 </div>
 
-                <div class="nav__toogle" id="nav-toogle">
-                    <i class='bx bx-grid-alt'></i>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
                 </div>
             </nav>
         </header>
@@ -95,7 +95,7 @@
                 <div class="article__container container">
                     <h1 class="article__title">Это статья и aside</h1>
                     <aside class="article__aside">
-                        <h1>Империя вернется...</h1>
+                        <h3>Империя восстанет...</h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero quis minima ab
                             soluta cupiditate distinctio velit nobis adipisci quibusdam, repellat obcaecati
                             quam eligendi. Ullam itaque cum praesentium sunt tempora cumque officiis saepe,
@@ -112,7 +112,7 @@
                             omnis sit.</p>
                     </aside>
                     <article class="article__data">
-                        <h1>Заголовок статьи</h1>
+                        <h3>Заголовок статьи</h3>
                         <p>
                             <strong>Lorem ipsum dolor sit amet</strong>
                             consectetur adipisicing elit. Neque aspernatur voluptate cupiditate<sup>[1]</sup>
@@ -250,10 +250,9 @@
                 <h1 class="picture__title">Это картинка и кнопка</h1>
                 <div class="picture__container grid ">
                     <div class="picture__data">
-                        <picture >
+                        <picture class="picture__img">
                             <source srcset="/assets/img/undraw_outdoor_adventure_re_j3b7.svg">
                             <img
-                                class="picture__img"
                                 srcset="/assets/img/undraw_outdoor_adventure_re_j3b7.svg"
                                 alt="Пара людей на природе">
                         </picture>
@@ -264,12 +263,9 @@
                             onclick="alert('Потверждено!')">Потвердить</button>
                     </div>
                     <div class="picture__data">
-                        <picture >
+                        <picture class="picture__img">
                             <source srcset="/assets/img/undraw_designer_re_5v95.svg">
-                            <img
-                                class="picture__img"
-                                srcset="/assets/img/undraw_designer_re_5v95.svg"
-                                alt="Дизайнер">
+                            <img srcset="/assets/img/undraw_designer_re_5v95.svg" alt="Дизайнер">
                         </picture>
                         <p class="picture__description">Дизайнер сидит и боготворит Adobe.</p>
                         <button
@@ -278,12 +274,9 @@
                             onclick="alert('Потверждено!')">Потвердить</button>
                     </div>
                     <div class="picture__data">
-                        <picture >
+                        <picture class="picture__img">
                             <source srcset="/assets/img/undraw_gaming_re_cma2.svg">
-                            <img
-                                class="picture__img"
-                                srcset="/assets/img/undraw_gaming_re_cma2.svg"
-                                alt="Гейминг">
+                            <img srcset="/assets/img/undraw_gaming_re_cma2.svg" alt="Гейминг">
                         </picture>
                         <p class="picture__description">Надо было купить второй геймпад.</p>
                         <button
@@ -292,10 +285,9 @@
                             onclick="alert('Потверждено!')">Потвердить</button>
                     </div>
                     <div class="picture__data">
-                        <picture >
+                        <picture class="picture__img">
                             <source srcset="/assets/img/undraw_lightbulb_moment_re_ulyo.svg">
                             <img
-                                class="picture__img"
                                 srcset="/assets/img/undraw_lightbulb_moment_re_ulyo.svg"
                                 alt="Внезапное вдохновение">
                         </picture>
@@ -363,7 +355,7 @@
                     <button class="getLocal interaction__button button">Чтение LocalStorage</button><br/>
                     <button class="setSession interaction__button button">Запись SessionStorage</button>
                     <button class="getSession interaction__button button">Чтение SessionStorage</button>
-                    <button class="clear button warning">Очистить всё</button>
+                    <button class="clear interaction__button button warning">Очистить всё</button>
                     <br/><br/>
                     <label class="interaction__label">Navigator</label><br>
                     <button class="getLocation  interaction__button button" href="#">Определить местоположение</button>
@@ -398,17 +390,7 @@
                 </div>
 
                 <P class="footer__copyright">
-                    Made with
-                    <svg
-                        viewBox="0 0 1792 1792"
-                        preserveAspectRatio="xMidYMid meet"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style="height: 0.8rem;">
-                        <path
-                            d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"
-                            fill="#e25555"></path>
-                    </svg>
-                    by xreyaf in
+                    Made by xreyaf in
                     <script>
                         document.write(new Date().getFullYear())
                     </script>

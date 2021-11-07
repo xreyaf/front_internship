@@ -1,12 +1,14 @@
 //small devices
-@media screen and (max-width: 360px) {
-	table,
-	thead,
+@media screen and (max-width: 500px) {
+	.home__table,
 	tbody,
-	th,
 	td,
+	th,
+	thead,
 	tr {
 		display: block;
+		border-radius: 1rem;
+		padding: 0.15rem;
 	}
 	thead tr {
 		position: absolute;
@@ -14,39 +16,101 @@
 		left: -9999px;
 	}
 
-	tr {
-		margin: 0 0 1rem 0;
-	}
-
 	td {
 		border: none;
 		position: relative;
-		padding-left: 50%;
+		text-align: right;
 	}
 
 	td:before {
 		position: absolute;
-		top: 0;
 		left: 6px;
 		width: 45%;
 		padding-right: 10px;
 		white-space: nowrap;
+		text-align: left;
+		color: var(--first-color-alt);
+		font-weight: var(--font-semi-bold);
 	}
+
+	td:nth-of-type(1):before {
+		content: "1й ст";
+	}
+	td:nth-of-type(2):before {
+		content: "2ой ст";
+	}
+	td:nth-of-type(3):before {
+		content: "3ий ст";
+	}
+	td:nth-of-type(4):before {
+		content: "4ый ст";
+	}
+
 	.forms__grid,
 	.picture__container {
 		grid-template-columns: repeat(1, 1fr);
 	}
+	.forms__button,
+	.interaction__button {
+		width: 100%;
+	}
+	.article__title,
+	.forms__title,
+	.home__title,
+	.interaction__title,
+	.picture__title {
+		font-size: 1.5rem;
+	}
+
+	.section {
+		padding: 3rem 0;
+	}
+	.nav__menu {
+		padding: 0.5rem 0;
+		margin: 0 1rem;
+	}
+
+	.article__data {
+		display: inherit;
+		width: 100%;
+	}
+	.article__aside {
+		display: none;
+	}
 }
 
 //medium devices
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 501px) and (max-width: 766px) {
+	.forms__grid,
+	.picture__container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.forms__button,
+	.interaction__button {
+		width: 100%;
+	}
+	.home__table,
+	.home th,
+	.home td {
+		padding: 1rem 1rem;
+	}
 }
-.picture__container {
-	grid-template-columns: repeat(1, 1fr);
-}
+
 @media screen and (min-width: 767px) {
+	.forms__grid,
 	.picture__container {
 		grid-template-columns: repeat(2, 1fr);
+	}
+	.nav {
+		height: calc(var(--header-height) + 1.5rem);
+
+		&__list {
+			flex-direction: row;
+			column-gap: 2.5rem;
+		}
+		&__toggle {
+			display: none;
+		}
 	}
 }
 

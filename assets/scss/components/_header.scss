@@ -28,7 +28,7 @@
 			right: 0;
 			margin: 0 auto;
 			transition: 0.4s;
-			border-radius: 2rem;
+			border-radius: 1rem;
 			z-index: var(--z-fixed);
 		}
 	}
@@ -50,22 +50,6 @@
 /* Show menu */
 .show-menu {
 	top: calc(var(--header-height) + 1rem);
-}
-
-/* Active link */
-.active-link {
-	position: relative;
-
-	&::before {
-		content: "";
-		position: absolute;
-		bottom: -0.75rem;
-		left: 45%;
-		width: 5px;
-		height: 5px;
-		background-color: var(--title-color);
-		border-radius: 50%;
-	}
 }
 
 /* Change background header */

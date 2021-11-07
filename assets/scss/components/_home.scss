@@ -8,6 +8,7 @@
 		border-radius: 1rem;
 		border-collapse: collapse;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		margin: 0 auto;
 	}
 	&__table thead tr {
 		color: var(--first-color-alt);
@@ -16,7 +17,7 @@
 	&__table,
 	th,
 	td {
-		padding: 12px 15px;
+		padding: 1.5rem 2rem;
 	}
 	&__table tbody tr:nth-of-type(even) {
 		background-color: var(--first-color-lighten);

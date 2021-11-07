@@ -355,7 +355,7 @@ const showMenu = (toggleId, navId) => {
 		});
 	}
 };
-showMenu("nav-toogle", "nav-menu");
+showMenu("nav-toggle", "nav-menu");
 
 function scrollHeader() {
 	const nav = document.getElementById("header");
