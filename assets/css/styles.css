@@ -29,7 +29,6 @@
   --mb-1: 1rem;
   --mb-1-5: 1.5rem;
   --mb-2: 2rem;
-  --z-tooltip: 10;
   --z-fixed: 100;
 }
 
@@ -574,6 +573,9 @@ img {
   }
   .nav__toggle {
     display: none;
+  }
+  .interaction__text {
+    width: 70%;
   }
 }
 

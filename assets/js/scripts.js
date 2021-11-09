@@ -1,5 +1,26 @@
 "use strict";
 
+//всплывающее меню
+const showMenu = (toggleId, navId) => {
+	const toggle = document.getElementById(toggleId),
+		nav = document.getElementById(navId);
+
+	if (toggle && nav) {
+		toggle.addEventListener("click", () => {
+			nav.classList.toggle("show-menu");
+		});
+	}
+};
+showMenu("nav-toggle", "nav-menu");
+
+//стиль хедера при прокрутке
+function scrollHeader() {
+	const nav = document.getElementById("header");
+	if (this.scrollY >= 80) nav.classList.add("scroll-header");
+	else nav.classList.remove("scroll-header");
+}
+window.addEventListener("scroll", scrollHeader);
+
 const сoncat = () => {
 	const a = document.getElementById("firstString").value;
 	const b = document.getElementById("secondString").value;
@@ -234,8 +255,6 @@ btnChild.addEventListener("click", () => {
 	trigonometry.computeNew();
 });
 
-/*__iteration 6__*/
-
 window.onload = () => {
 	const urlBtn = document.querySelector(".urlBtn");
 	const urlP = document.querySelector(".urlP");
@@ -345,21 +364,82 @@ window.onload = () => {
 
 // window.onbeforeunload = () => { 	return false; };
 
-const showMenu = (toggleId, navId) => {
-	const toggle = document.getElementById(toggleId),
-		nav = document.getElementById(navId);
+//iteration 7
 
-	if (toggle && nav) {
-		toggle.addEventListener("click", () => {
-			nav.classList.toggle("show-menu");
-		});
+const promiseBtn = document.querySelector(".getReposPromise");
+const asAwBtn = document.querySelector(".getReposAsAw");
+const fetchedRepos = document.querySelector(".fetchedRepos");
+const clrData = document.querySelector(".clearData");
+
+clrData.addEventListener("click", () => {
+	fetchedRepos.innerText = "";
+});
+
+promiseBtn.addEventListener("click", () => {
+	const USERNAME = document.querySelector("#gitHubUsername");
+	const URL = `https://api.github.com/users/${USERNAME.value}/repos`;
+	fetch(URL)
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				const err = new Error(response.status + " " + response.statusText);
+				throw err;
+			}
+		})
+		.then((data) => {
+			if (data.length > 0) {
+				fetchedRepos.innerText = data
+					.map(
+						(data) =>
+							"Имя репозитория: " +
+							data.name +
+							", создан: " +
+							new Date(data.created_at).toLocaleDateString() +
+							", последнее обновление: " +
+							new Date(data.updated_at).toLocaleDateString() +
+							". Описание: " +
+							data.description
+					)
+					.join("\n");
+			} else {
+				const err = new Error("У пользователя нет публичных репозиториев");
+				throw err;
+			}
+		})
+		.catch((err) => alert("Error: " + err.message));
+});
+
+asAwBtn.addEventListener("click", async function (e) {
+	const USERNAME = document.querySelector("#gitHubUsername");
+	const URL = `https://api.github.com/users/${USERNAME.value}/repos`;
+	try {
+		let response = await fetch(URL);
+		if (response.ok) {
+			let data = await response.json();
+			if (data.length > 0) {
+				fetchedRepos.innerText = data
+					.map(
+						(data) =>
+							"Имя репозитория: " +
+							data.name +
+							", создан: " +
+							new Date(data.created_at).toLocaleDateString() +
+							", последнее обновление: " +
+							new Date(data.updated_at).toLocaleDateString() +
+							". Описание: " +
+							data.description
+					)
+					.join("\n");
+			} else {
+				const error = new Error("У пользователя нет публичных репозиториев");
+				throw error;
+			}
+		} else {
+			const error = new Error(response.status + " " + response.statusText);
+			throw error;
+		}
+	} catch (err) {
+		alert("Error: " + err.message);
 	}
-};
-showMenu("nav-toggle", "nav-menu");
-
-function scrollHeader() {
-	const nav = document.getElementById("header");
-	if (this.scrollY >= 80) nav.classList.add("scroll-header");
-	else nav.classList.remove("scroll-header");
-}
-window.addEventListener("scroll", scrollHeader);
+});
