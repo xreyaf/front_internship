@@ -255,11 +255,6 @@ btnChild.addEventListener("click", () => {
 	trigonometry.computeNew();
 });
 
-<<<<<<< HEAD:scripts.js
-/*__iteration 6__*/
-
-=======
->>>>>>> dev:assets/js/scripts.js
 window.onload = () => {
 	const urlBtn = document.querySelector(".urlBtn");
 	const urlP = document.querySelector(".urlP");
