@@ -412,7 +412,7 @@ promiseBtn.addEventListener("click", () => {
 		.catch((err) => alert("Error: " + err.message));
 });
 
-asAwBtn.addEventListener("click", async function (e) {
+asAwBtn.addEventListener("click", async () => {
 	const USERNAME = document.querySelector("#gitHubUsername");
 	const URL = `https://api.github.com/users/${USERNAME.value}/repos`;
 	try {
