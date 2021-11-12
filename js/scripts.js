@@ -362,9 +362,7 @@ window.onload = () => {
 	});
 };
 
-// window.onbeforeunload = () => { 	return false; };
-
-//iteration 7
+// window.onbeforeunload = () => { 	return false; }; iteration 7
 
 const promiseBtn = document.querySelector(".getReposPromise");
 const asAwBtn = document.querySelector(".getReposAsAw");
@@ -374,6 +372,22 @@ const clrData = document.querySelector(".clearData");
 clrData.addEventListener("click", () => {
 	fetchedRepos.innerText = "";
 });
+
+function fetchedData(data) {
+	return data
+		.map(
+			(data) =>
+				"Имя репозитория: " +
+				data.name +
+				", создан: " +
+				new Date(data.created_at).toLocaleDateString() +
+				", последнее обновление: " +
+				new Date(data.updated_at).toLocaleDateString() +
+				". Описание: " +
+				data.description
+		)
+		.join("\n");
+}
 
 promiseBtn.addEventListener("click", () => {
 	const USERNAME = document.querySelector("#gitHubUsername");
@@ -389,19 +403,7 @@ promiseBtn.addEventListener("click", () => {
 		})
 		.then((data) => {
 			if (data.length > 0) {
-				fetchedRepos.innerText = data
-					.map(
-						(data) =>
-							"Имя репозитория: " +
-							data.name +
-							", создан: " +
-							new Date(data.created_at).toLocaleDateString() +
-							", последнее обновление: " +
-							new Date(data.updated_at).toLocaleDateString() +
-							". Описание: " +
-							data.description
-					)
-					.join("\n");
+				fetchedRepos.innerText = fetchedData(data);
 			} else {
 				const err = new Error("У пользователя нет публичных репозиториев");
 				throw err;
@@ -414,23 +416,11 @@ asAwBtn.addEventListener("click", async function (e) {
 	const USERNAME = document.querySelector("#gitHubUsername");
 	const URL = `https://api.github.com/users/${USERNAME.value}/repos`;
 	try {
-		let response = await fetch(URL);
+		const response = await fetch(URL);
 		if (response.ok) {
-			let data = await response.json();
+			const data = await response.json();
 			if (data.length > 0) {
-				fetchedRepos.innerText = data
-					.map(
-						(data) =>
-							"Имя репозитория: " +
-							data.name +
-							", создан: " +
-							new Date(data.created_at).toLocaleDateString() +
-							", последнее обновление: " +
-							new Date(data.updated_at).toLocaleDateString() +
-							". Описание: " +
-							data.description
-					)
-					.join("\n");
+				fetchedRepos.innerText = fetchedData(data);
 			} else {
 				const error = new Error("У пользователя нет публичных репозиториев");
 				throw error;
