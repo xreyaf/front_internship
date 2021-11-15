@@ -272,32 +272,32 @@ window.onload = () => {
     const navH = document.querySelector('.navHistory')
     const changeH = document.querySelector('.changeHistory')
 
-    // getH.addEventListener("click", () => {
-    // 	urlP.innerText = "Количество переходов: " + history.length;
-    // });
+    getH.addEventListener('click', () => {
+        urlP.innerText = 'Количество переходов: ' + history.length
+    })
 
-    // navH.addEventListener("click", () => {
-    // 	try {
-    // 		history.go(1);
-    // 	} catch (e) {
-    // 		alert("Не было переходов");
-    // 		console.log(e.message);
-    // 	}
-    // });
+    navH.addEventListener('click', () => {
+        try {
+            history.go(1)
+        } catch (e) {
+            alert('Не было переходов')
+            console.log(e.message)
+        }
+    })
 
-    // changeH.addEventListener("click", () => {
-    // 	try {
-    // 		history.pushState(
-    // 			null,
-    // 			"Страница 2",
-    // 			"http://127.0.0.1:5500/pages/page2.html"
-    // 		);
-    // 		history.go(0);
-    // 	} catch (e) {
-    // 		alert("Не получилось :с");
-    // 		console.log(e.message);
-    // 	}
-    // });
+    changeH.addEventListener('click', () => {
+        try {
+            history.pushState(
+                null,
+                'Страница 2',
+                'http://127.0.0.1:5500/pages/page2.html'
+            )
+            history.go(0)
+        } catch (e) {
+            alert('Не получилось :с')
+            console.log(e.message)
+        }
+    })
 
     const getCk = document.querySelector('.getCookie')
     const setCk = document.querySelector('.setCookie')
