@@ -1,0 +1,25 @@
+//footer
+.footer {
+  background-color: var(--first-color-lighten);
+  padding-bottom: 3rem;
+  margin-top: 7rem;
+  &__container {
+    text-align: center;
+  }
+  &__social {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    &-link {
+      font-size: 1.25rem;
+      color: var(--title-color);
+    }
+  }
+  &__email {
+    color: var(--title-color);
+    margin-top: 0.5rem;
+  }
+  &__copyright {
+    margin-top: 1.5rem;
+  }
+}
