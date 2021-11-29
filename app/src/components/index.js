@@ -1,7 +1,9 @@
 export { default as Home } from './Home';
 export { default as Article } from './Article';
 export { default as Forms } from './Forms';
-export { default as Interaction } from './Interaction';
-export { default as Times } from './Times';
+export { default as Clock } from './Clock';
+export { default as Calculate } from './Calculate';
+export { default as ConsoleLogic } from './ConsoleLogic';
+export { default as Requests } from './Requests';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';

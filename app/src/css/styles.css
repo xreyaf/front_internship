@@ -62,8 +62,6 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 
 h1,
@@ -136,10 +134,10 @@ img {
   .nav__menu {
     position: fixed;
     background-color: var(--container-color);
-    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 2.5rem 0;
-    width: 90%;
+    width: 93%;
     top: -100%;
     left: 0;
     right: 0;
@@ -178,13 +176,11 @@ img {
   transition: 0.3s;
 }
 
-.show-menu {
+.show__menu {
   top: calc(var(--header-height) + 1rem);
-  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.scroll-header {
+.scroll__header {
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -534,8 +530,7 @@ img {
     padding: 3rem 0;
   }
   .nav__menu {
-    padding: 0.5rem 0;
-    margin: 0 1rem;
+    width: 86%;
   }
   .article__data {
     display: inherit;

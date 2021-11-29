@@ -12,13 +12,6 @@ const Forms = lazy(() => import('./components/Forms'));
 const Interaction = lazy(() => import('./components/Interaction'));
 
 class App extends React.Component {
-  componentDidMount() {
-    const script = document.createElement('script');
-    script.src = './js/scripts.js';
-    script.async = true;
-    document.body.appendChild(script);
-  }
-
   render() {
     return (
       <Router>
