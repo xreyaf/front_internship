@@ -149,7 +149,7 @@ export class ConsoleLogic extends Component {
     this.setState({ cURL: currentURL });
   };
 
-  handleGetH = () => {
+  handleGetHistory = () => {
     const len = window.history.length;
     if (len < 50) {
       this.setState({
@@ -162,7 +162,7 @@ export class ConsoleLogic extends Component {
     }
   };
 
-  handleNavH = () => {
+  handleNavHistory = () => {
     try {
       window.history.go(-1);
     } catch {
@@ -170,7 +170,7 @@ export class ConsoleLogic extends Component {
     }
   };
 
-  handleChangeH = () => {
+  handleChangeHistory = () => {
     try {
       window.history.pushState(null, '', 'http://localhost:3000');
       window.history.go(0);
@@ -179,11 +179,11 @@ export class ConsoleLogic extends Component {
     }
   };
 
-  handleGetCk = () => {
+  handleGetCookie = () => {
     this.setState({ cookieValue: document.cookie });
   };
 
-  handleSetCk = () => {
+  handleSetCookie = () => {
     document.cookie = `name=Roman; expires=${new Date(
       2022,
       0,
@@ -196,7 +196,7 @@ export class ConsoleLogic extends Component {
     ).toUTCString()}`;
   };
 
-  handleChangeCk = () => {
+  handleChangeCookie = () => {
     document.cookie = 'name=Romul; max-age=5';
   };
 
@@ -318,19 +318,19 @@ export class ConsoleLogic extends Component {
         <button
           type="button"
           className="getHistory interaction__button button"
-          onClick={this.handleGetH}>
+          onClick={this.handleGetHistory}>
           Получить
         </button>
         <button
           type="button"
           className="navHistory interaction__button button"
-          onClick={this.handleNavH}>
+          onClick={this.handleNavHistory}>
           Перейти
         </button>
         <button
           type="button"
           className="changeHistory interaction__button button"
-          onClick={this.handleChangeH}>
+          onClick={this.handleChangeHistory}>
           Изменить
         </button>
         <p>{historyValue}</p>
@@ -341,19 +341,19 @@ export class ConsoleLogic extends Component {
         <button
           type="button"
           className="setCookie interaction__button button"
-          onClick={this.handleSetCk}>
+          onClick={this.handleSetCookie}>
           Запись
         </button>
         <button
           type="button"
           className="getCookie interaction__button button"
-          onClick={this.handleGetCk}>
+          onClick={this.handleGetCookie}>
           Чтение
         </button>
         <button
           type="button"
           className="changeCookie interaction__button button"
-          onClick={this.handleChangeCk}>
+          onClick={this.handleChangeCookie}>
           Изменить
         </button>
         <p>{cookieValue}</p>
