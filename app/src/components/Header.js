@@ -5,20 +5,27 @@ import React, { Component } from 'react';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.toggleClass = this.toggleClass.bind(this);
     this.state = {
       showMenu: false,
       isTop: true
     };
+    this.toggleClass = this.toggleClass.bind(this);
+    this.toggleShadowVisibility = this.toggleShadowVisibility.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < 100;
-      if (isTop !== this.state.isTop) {
-        this.setState({ isTop });
-      }
-    });
+    window.addEventListener('scroll', this.toggleShadowVisibility);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.toggleShadowVisibility);
+  }
+
+  toggleShadowVisibility() {
+    const isTop = window.pageYOffset < 100;
+    if (isTop !== this.state.isTop) {
+      this.setState({ isTop });
+    }
   }
 
   toggleClass() {
