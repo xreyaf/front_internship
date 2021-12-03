@@ -6,19 +6,19 @@ export class Calculate extends Component {
     super(props);
     this.state = {
       previousOperand: null,
-      currentOperand: null,
+      currenOperand: null,
       operationValue: '+',
       resultValue: 0
     };
+    this.handleChange = this.handleChange.bind(this);
     this.handleCompute = this.handleCompute.bind(this);
-    // this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleCompute = () => {
     let computation;
-    const { previousOperand, currentOperand, operationValue } = this.state;
+    const { previousOperand, currenOperand, operationValue } = this.state;
     const prev = Number(previousOperand);
-    const current = Number(currentOperand);
+    const current = Number(currenOperand);
     const operation = operationValue;
 
     if (Number.isNaN(prev) || Number.isNaN(current)) return;
@@ -48,27 +48,12 @@ export class Calculate extends Component {
     this.setState({ resultValue: computation });
   };
 
-  // по-моему классно работает ))
-  // handleInputChange = (e) => {
-  //   this.setState({
-  //     [e.target.id]: e.target.value
-  //   });
-  // };
-
-  handlePrevOpChange = (e) => {
-    this.setState({ previousOperand: e.target.value });
-  };
-
-  handleCurrOpChange = (e) => {
-    this.setState({ currentOperand: e.target.value });
-  };
-
-  handleOpValueChange = (e) => {
-    this.setState({ operationValue: e.target.value });
+  handleChange = (e, field) => {
+    this.setState({ [field]: e.target.value });
   };
 
   render() {
-    const { previousOperand, currentOperand, operationValue, resultValue } =
+    const { previousOperand, currenOperand, operationValue, resultValue } =
       this.state;
     return (
       <>
@@ -77,9 +62,9 @@ export class Calculate extends Component {
         <input
           className="interaction__text"
           type="text"
-          id="previousOperand"
+          id="firstOperand"
           value={previousOperand}
-          onChange={this.handlePrevOpChange}
+          onChange={(e) => this.handleChange(e, 'previousOperand')}
         />
         <br />
         <label className="interaction__label">Второй операнд:</label>
@@ -87,15 +72,14 @@ export class Calculate extends Component {
         <input
           className="interaction__text"
           type="text"
-          id="currentOperand"
-          value={currentOperand}
-          onChange={this.handleCurrOpChange}
+          id="secondOperand"
+          value={currenOperand}
+          onChange={(e) => this.handleChange(e, 'currenOperand')}
         />
         <br />
         <select
-          id="operationValue"
           value={operationValue}
-          onChange={this.handleOpValueChange}>
+          onChange={(e) => this.handleChange(e, 'operationValue')}>
           <option value="+">+</option>
           <option value="-">-</option>
           <option value="/">/</option>

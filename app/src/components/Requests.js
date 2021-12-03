@@ -10,7 +10,7 @@ export class Requests extends Component {
     };
   }
 
-  handlePromiseFetch = () => {
+  handlePromise = () => {
     const { user } = this.state;
     const URL = `https://api.github.com/users/${user}/repos`;
     fetch(URL)
@@ -32,7 +32,7 @@ export class Requests extends Component {
       .catch((err) => alert(`Error: ${err.message}`));
   };
 
-  handleAsyncFetch = async () => {
+  handleAsAw = async () => {
     const { user } = this.state;
     const URL = `https://api.github.com/users/${user}/repos`;
     try {
@@ -81,13 +81,13 @@ export class Requests extends Component {
         <button
           type="button"
           className="getReposPromise interaction__button button"
-          onClick={this.handlePromiseFetch}>
+          onClick={this.handlePromise}>
           Promise
         </button>
         <button
           type="button"
           className="getReposAsAw interaction__button button"
-          onClick={this.handleAsyncFetch}>
+          onClick={this.handleAsAw}>
           Async/Await
         </button>
         <button
