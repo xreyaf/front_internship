@@ -13,9 +13,7 @@ const useFetch = (url) => {
   }, [url]);
 
   useEffect(() => {
-    setTimeout(() => {
-      loadData();
-    }, 1000);
+    loadData();
   }, [url, loadData]);
 
   return { data, isLoading };

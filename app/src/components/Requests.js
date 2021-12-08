@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export const Requests = () => {
   const [repos, setRepos] = useState([]);
-  const [user, setUSer] = useState('');
+  const [user, setUser] = useState('');
 
   const handlePromiseFetch = () => {
     const URL = `https://api.github.com/users/${user}/repos`;
@@ -48,7 +48,7 @@ export const Requests = () => {
 
   const handleClear = () => {
     setRepos([]);
-    setUSer('');
+    setUser('');
   };
 
   return (
@@ -65,7 +65,7 @@ export const Requests = () => {
         id="gitHubUsername"
         value={user}
         onChange={(e) => {
-          setUSer(e.target.value);
+          setUser(e.target.value);
         }}
       />
       <br />
