@@ -1,17 +1,10 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-export class Requests extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: '',
-      repos: []
-    };
-  }
+export const Requests = () => {
+  const [repos, setRepos] = useState([]);
+  const [user, setUSer] = useState('');
 
-  handlePromiseFetch = () => {
-    const { user } = this.state;
+  const handlePromiseFetch = () => {
     const URL = `https://api.github.com/users/${user}/repos`;
     fetch(URL)
       .then((response) => {
@@ -23,7 +16,7 @@ export class Requests extends Component {
       })
       .then((data) => {
         if (data.length > 0) {
-          this.setState({ repos: data });
+          setRepos(data);
         } else {
           const err = new Error('У пользователя нет публичных репозиториев');
           throw err;
@@ -32,15 +25,14 @@ export class Requests extends Component {
       .catch((err) => alert(`Error: ${err.message}`));
   };
 
-  handleAsyncFetch = async () => {
-    const { user } = this.state;
+  const handleAsyncFetch = async () => {
     const URL = `https://api.github.com/users/${user}/repos`;
     try {
       const response = await fetch(URL);
       if (response.ok) {
         const data = await response.json();
         if (data.length > 0) {
-          this.setState({ repos: data });
+          setRepos(data);
         } else {
           const error = new Error('У пользователя нет публичных репозиториев');
           throw error;
@@ -54,64 +46,62 @@ export class Requests extends Component {
     }
   };
 
-  handleClear = () => {
-    this.setState({ repos: [] });
+  const handleClear = () => {
+    setRepos([]);
+    setUSer('');
   };
 
-  render() {
-    const { user, repos } = this.state;
-    return (
-      <>
-        <label className="interaction__label">Работа с запросами JS</label>
-        <br />
-        <label className="interaction__label">
-          Введите никнейм пользователя:
-        </label>
-        <br />
-        <input
-          className="interaction__text"
-          type="text"
-          id="gitHubUsername"
-          value={user}
-          onChange={(e) => {
-            this.setState({ user: e.target.value });
-          }}
-        />
-        <br />
-        <button
-          type="button"
-          className="getReposPromise interaction__button button"
-          onClick={this.handlePromiseFetch}>
-          Promise
-        </button>
-        <button
-          type="button"
-          className="getReposAsAw interaction__button button"
-          onClick={this.handleAsyncFetch}>
-          Async/Await
-        </button>
-        <button
-          type="button"
-          className="clearData interaction__button button warning"
-          onClick={this.handleClear}>
-          Очистить
-        </button>
-        <br />
-        <p style={{ whiteSpace: 'pre-line' }}>
-          {repos
-            .map(
-              (rep) =>
-                `Имя репозитория: ${rep.name}, создан: ${new Date(
-                  rep.created_at
-                ).toLocaleDateString()}, последнее обновление: ${new Date(
-                  rep.updated_at
-                ).toLocaleDateString()}. Описание: ${rep.description} `
-            )
-            .join('\n')}
-        </p>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <label className="interaction__label">Работа с запросами JS</label>
+      <br />
+      <label className="interaction__label">
+        Введите никнейм пользователя:
+      </label>
+      <br />
+      <input
+        className="interaction__text"
+        type="text"
+        id="gitHubUsername"
+        value={user}
+        onChange={(e) => {
+          setUSer(e.target.value);
+        }}
+      />
+      <br />
+      <button
+        type="button"
+        className="getReposPromise interaction__button button"
+        onClick={handlePromiseFetch}>
+        Promise
+      </button>
+      <button
+        type="button"
+        className="getReposAsAw interaction__button button"
+        onClick={handleAsyncFetch}>
+        Async/Await
+      </button>
+      <button
+        type="button"
+        className="clearData interaction__button button warning"
+        onClick={handleClear}>
+        Очистить
+      </button>
+      <br />
+      <p style={{ whiteSpace: 'pre-line' }}>
+        {repos
+          .map(
+            (rep) =>
+              `Имя репозитория: ${rep.name}, создан: ${new Date(
+                rep.created_at
+              ).toLocaleDateString()}, последнее обновление: ${new Date(
+                rep.updated_at
+              ).toLocaleDateString()}. Описание: ${rep.description} `
+          )
+          .join('\n')}
+      </p>
+    </>
+  );
+};
 
 export default Requests;
