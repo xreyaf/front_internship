@@ -7,3 +7,5 @@ export { default as ConsoleLogic } from './ConsoleLogic';
 export { default as Requests } from './Requests';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
+export { default as DataProvider } from './DataProvider';
+export { default as ReposList } from './ReposList';
