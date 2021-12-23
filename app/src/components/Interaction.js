@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Clock, Calculate, ConsoleLogic, Requests, DataProvider } from '.';
+import useWindowEvent from '../hooks/useWindowEvent';
 import Posts from './Posts';
 
 const Interaction = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
   return (
     <section className="interaction section">
       <div className="interaction__container container">
         <h1 className="interaction__title">Секция взаимодействия</h1>
+        <h2>
+          {useWindowEvent('mousemove', (e) =>
+            setPosition({ x: e.clientX, y: e.clientY })
+          )}
+          Координаты мыши: {position.x}:{position.y}
+        </h2>
         <Clock /> <br />
         <Calculate />
         <ConsoleLogic />

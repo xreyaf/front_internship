@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 
 export class Clock extends Component {
@@ -14,6 +15,12 @@ export class Clock extends Component {
         time: new Date()
       });
     }, 1000);
+  }
+
+  componentDidUpdate() {
+    if (this.state.time) {
+      document.title = `${this.state.time.toLocaleTimeString()}`;
+    } else document.title = 'FRNTND';
   }
 
   componentWillUnmount() {

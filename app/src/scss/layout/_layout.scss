@@ -1,24 +1,30 @@
 //classes
 .section {
-	padding: 4.5rem 0 1rem;
+  padding: 4.5rem 0 1rem;
 
-	&__title,
-	&__title-center {
-		font-size: var(--h2-font-size);
-		color: var(--title-color);
-		text-align: center;
-		margin-bottom: var(--mb-1);
-	}
+  &__title,
+  &__title-center {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: var(--mb-1);
+  }
 }
 
 //layout
 .container {
-	margin-left: var(--mb-1-5);
-	margin-right: var(--mb-1-5);
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+}
+
+.container--nf {
+  text-align: center;
+  padding: 5rem 0;
+  min-height: 61vh;
 }
 
 //grid
 .grid {
-	display: grid;
-	gap: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
 }

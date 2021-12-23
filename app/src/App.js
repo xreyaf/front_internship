@@ -10,6 +10,7 @@ const Article = lazy(() => import('./components/Article'));
 const Cards = lazy(() => import('./components/Cards'));
 const Forms = lazy(() => import('./components/Forms'));
 const Interaction = lazy(() => import('./components/Interaction'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 class App extends React.Component {
   render() {
@@ -31,7 +32,7 @@ class App extends React.Component {
             <Route exact path="/cards" element={<Cards />} />
             <Route exact path="/forms" element={<Forms />} />
             <Route exact path="/scripts" element={<Interaction />} />
-            <Route path="*" element={() => 'ERROR 404 NOT FOUND'} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <Footer />
