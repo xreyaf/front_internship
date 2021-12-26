@@ -2,12 +2,22 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
 /* eslint-disable react/no-unused-class-component-methods */
-/* eslint-disable react/prefer-stateless-function */
 
 import React, { Component } from 'react';
 
-export class ConsoleLogic extends Component {
-  constructor(props) {
+type ConcoleLogicProps = {};
+type ConcoleLogicState = {
+  cURL: string;
+  historyValue: string;
+  cookieValue: string;
+  sessionValue: string;
+  location: string;
+  locationLINK: string;
+  appInfo: string;
+};
+
+class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
+  constructor(props: ConcoleLogicProps) {
     super(props);
     this.state = {
       cURL: '',
@@ -26,8 +36,8 @@ export class ConsoleLogic extends Component {
       const b = 10;
       const isBool = false;
       console.log(`Вводные: a=${a}, b=${b}, isBool=${isBool}`);
-
       const result = a > 50 && b < 12;
+      // @ts-ignore
       const result1 = a > 50 || isBool === true;
       const result2 = !(a < 50);
       const result3 = undefined || a || null;
@@ -41,13 +51,16 @@ export class ConsoleLogic extends Component {
       console.log(result4, `${a} && null && ${b}`, 'Первое ложное');
       console.groupEnd();
 
+      // @ts-ignore
       if (a !== b) {
         alert(`false: ${a} != ${b} `);
       }
 
       throw new Error('Ошибочка вышла!');
     } catch (e) {
+      // @ts-ignore
       console.log(e.name);
+      // @ts-ignore
       console.log(e.message);
     } finally {
       alert('finally выполнится всегда');
@@ -56,6 +69,7 @@ export class ConsoleLogic extends Component {
     const user = {
       firstName: 'Peter',
       age: 30,
+      pet: '',
       adress: {
         country: 'Russia',
         region: `Kaluga oblast'`,
@@ -64,23 +78,19 @@ export class ConsoleLogic extends Component {
       getFirstName() {
         console.log(this.firstName);
       },
-      getAgeArrow: null,
       getAge() {
-        this.getAgeArrow = () => console.log(this.age);
-        // setTimeout(() => console.log(this.age), 100);
+        console.log(this.age);
       }
     };
 
     console.group('Стрелочные функции');
     user.getFirstName();
     user.getAge();
-    user.getAgeArrow();
-
-    const notArrow = function (a, b) {
+    const notArrow = function func(a: string, b: string) {
       return `${a} ${b}`;
     };
 
-    const Arrow = (...args) => {
+    const Arrow = (...args: string[]) => {
       console.log(args);
       return `${args[0]} ${args[1]}`;
     };
@@ -101,20 +111,27 @@ export class ConsoleLogic extends Component {
     console.log([...odds, 1337, ...evens]);
     const numbers = [5, 123, 52, 4, 10];
     console.log(Math.max(...numbers));
-    const sumOdds = (a, ...rest) => a + rest.reduce((ab, i) => ab + i, 0);
-    const sumEvens = (a = 0, b = 0, ...rest) => {
+    const sumOdds = (a: number, ...rest: undefined[]) =>
+      // @ts-ignore
+      a + rest.reduce((ab, i) => ab + i, 0);
+    const sumEvens = (a = 0, b = 0, ...rest: undefined[]) => {
       let result = a + b;
       for (const r of rest) {
+        // @ts-ignore
         result += r;
       }
       return result;
     };
+    // @ts-ignore
     console.log(sumOdds(...odds));
     console.log(sumEvens(...evens));
 
     const sections = document.querySelectorAll('section');
+    // @ts-ignore
     const arrayOfSections = [...sections];
+    // @ts-ignore
     console.log(sections, Array.isArray());
+    // @ts-ignore
     console.log(arrayOfSections, Array.isArray());
 
     const [a, , ...other] = numbers;
@@ -138,6 +155,7 @@ export class ConsoleLogic extends Component {
       }
     }
     console.group('Генератор');
+    // @ts-ignore
     for (const i of genFunction(5)) {
       console.log(i);
     }
@@ -201,7 +219,7 @@ export class ConsoleLogic extends Component {
   };
 
   handleSetLs = () => {
-    const user = {
+    const user: any = {
       firstName: 'Peter',
       age: 30,
       adress: {
@@ -222,7 +240,7 @@ export class ConsoleLogic extends Component {
 
   handleGetLs = () => {
     try {
-      const userLS = JSON.parse(localStorage.getItem('user'));
+      const userLS = JSON.parse(localStorage.getItem('user') || '');
       // debugger;
       this.setState({
         sessionValue: `Его зовут ${userLS.firstName}, ему ${userLS.age} лет`
@@ -233,7 +251,7 @@ export class ConsoleLogic extends Component {
   };
 
   handleSetSs = () => {
-    const value = sessionStorage.setItem(
+    const value: any = sessionStorage.setItem(
       'SessionInfo',
       'Some session information'
     );
@@ -398,7 +416,9 @@ export class ConsoleLogic extends Component {
         <p>{sessionValue}</p>
         <br />
 
-        <label type="button" className="interaction__label">
+        <label
+          // type="button"
+          className="interaction__label">
           Navigator
         </label>
         <br />

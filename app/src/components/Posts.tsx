@@ -2,7 +2,7 @@
 import React from 'react';
 import { ReposList } from '.';
 
-const Posts = ({ data, isLoading }) => {
+const Posts = ({ data, isLoading }: { data: any; isLoading: any }) => {
   return (
     <div>
       {isLoading && <div>Loading...</div>}

@@ -1,21 +1,28 @@
-/* eslint-disable react/prefer-stateless-function  */
 import React, { Component } from 'react';
 
-export class Calculate extends Component {
-  constructor(props) {
+type CalculateProps = {};
+
+type CalculateState = {
+  previousOperand: number;
+  currentOperand: number;
+  operationValue: string;
+  resultValue: number | undefined;
+};
+
+export class Calculate extends Component<CalculateProps, CalculateState> {
+  constructor(props: CalculateProps) {
     super(props);
     this.state = {
-      previousOperand: null,
-      currentOperand: null,
+      previousOperand: 0,
+      currentOperand: 0,
       operationValue: '+',
       resultValue: 0
     };
     this.handleCompute = this.handleCompute.bind(this);
-    // this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleCompute = () => {
-    let computation;
+    let computation: number | undefined;
     const { previousOperand, currentOperand, operationValue } = this.state;
     const prev = Number(previousOperand);
     const current = Number(currentOperand);
@@ -48,22 +55,15 @@ export class Calculate extends Component {
     this.setState({ resultValue: computation });
   };
 
-  // по-моему классно работает ))
-  // handleInputChange = (e) => {
-  //   this.setState({
-  //     [e.target.id]: e.target.value
-  //   });
-  // };
-
-  handlePrevOpChange = (e) => {
+  handlePrevOpChange = (e: React.ChangeEvent<any>) => {
     this.setState({ previousOperand: e.target.value });
   };
 
-  handleCurrOpChange = (e) => {
+  handleCurrOpChange = (e: React.ChangeEvent<any>) => {
     this.setState({ currentOperand: e.target.value });
   };
 
-  handleOpValueChange = (e) => {
+  handleOpValueChange = (e: React.ChangeEvent<any>) => {
     this.setState({ operationValue: e.target.value });
   };
 
@@ -114,7 +114,7 @@ export class Calculate extends Component {
         <label className="interaction__label">Результат:</label>
         <br />
         <input
-          readOnly="true"
+          // readOnly={'true'}
           className="interaction__text"
           type="text"
           id="result"

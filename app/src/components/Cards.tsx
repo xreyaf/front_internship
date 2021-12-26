@@ -1,7 +1,13 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 
 class Cards extends Component {
+  handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    alert('Потверждено!');
+  }
+
   render() {
     return (
       <section className="cards section container">
@@ -23,7 +29,7 @@ class Cards extends Component {
             <button
               className="cards__button button"
               type="button"
-              onClick="alert('Потверждено!')">
+              onClick={this.handleClick}>
               Потвердить
             </button>
           </div>
@@ -43,7 +49,7 @@ class Cards extends Component {
             <button
               className="cards__button button"
               type="button"
-              onClick="alert('Потверждено!')">
+              onClick={this.handleClick}>
               Потвердить
             </button>
           </div>
@@ -63,7 +69,7 @@ class Cards extends Component {
             <button
               className="cards__button button"
               type="button"
-              onClick="alert('Потверждено!')">
+              onClick={this.handleClick}>
               Потвердить
             </button>
           </div>
@@ -81,7 +87,7 @@ class Cards extends Component {
             <button
               className="cards__button button"
               type="button"
-              onClick="alert('Потверждено!')">
+              onClick={this.handleClick}>
               Потвердить
             </button>
           </div>

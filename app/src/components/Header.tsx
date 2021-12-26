@@ -1,9 +1,16 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 
-class Header extends Component {
-  constructor(props) {
+type Props = {};
+type State = {
+  showMenu: boolean;
+  isTop: boolean;
+};
+
+class Header extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       showMenu: false,
@@ -37,10 +44,7 @@ class Header extends Component {
     const menuActive = this.state.showMenu ? 'show__menu' : '';
     const isTop = this.state.isTop ? '' : 'scroll__header';
     return (
-      <header
-        onScroll={this.handleScroll}
-        className={`header ${isTop}`}
-        id="header">
+      <header className={`header ${isTop}`} id="header">
         <nav className="nav container">
           <a href="/" className="nav__logo">
             ФРНТНД
@@ -65,6 +69,8 @@ class Header extends Component {
               </li>
               <li className="nav__item">
                 <a href="/" className="nav__link">
+                  {/* 
+                  // @ts-ignore */}
                   <box-icon name="home" />
                 </a>
               </li>
@@ -76,6 +82,8 @@ class Header extends Component {
             className="nav__toggle"
             id="nav-toggle"
             onClick={this.toggleClass}>
+            {/* 
+            // @ts-ignore */}
             <box-icon name="menu" />
           </div>
         </nav>

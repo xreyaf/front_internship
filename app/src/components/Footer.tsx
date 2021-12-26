@@ -13,6 +13,8 @@ class Footer extends Component {
                 target="_blank"
                 rel="noreferrer"
                 className="footer__social-link">
+                {/*
+                // @ts-ignore */}
                 <box-icon type="logo" name="github" />
               </a>
               <a
@@ -20,6 +22,8 @@ class Footer extends Component {
                 target="_blank"
                 rel="noreferrer"
                 className="footer__social-link">
+                {/*
+                // @ts-ignore */}
                 <box-icon name="vk" type="logo" />
               </a>
               <a
@@ -27,6 +31,8 @@ class Footer extends Component {
                 target="_blank"
                 rel="noreferrer"
                 className="footer__social-link">
+                {/*
+                // @ts-ignore */}
                 <box-icon name="twitter" type="logo" />
               </a>
               <a
@@ -34,6 +40,8 @@ class Footer extends Component {
                 target="_blank"
                 rel="noreferrer"
                 className="footer__social-link">
+                {/*
+                // @ts-ignore */}
                 <box-icon name="instagram" type="logo" />
               </a>
             </div>

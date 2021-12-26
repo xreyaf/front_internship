@@ -2,7 +2,7 @@
 import React from 'react';
 import useFetch from '../hooks/useFetch';
 
-const DataProvider = ({ renderContent }) => {
+const DataProvider = ({ renderContent }: { renderContent: any }) => {
   const { data, isLoading } = useFetch(
     'https://api.github.com/users/xreyaf/repos'
   );

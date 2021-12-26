@@ -11,7 +11,7 @@ const Interaction = () => {
       <div className="interaction__container container">
         <h1 className="interaction__title">Секция взаимодействия</h1>
         <h2>
-          {useWindowEvent('mousemove', (e) =>
+          {useWindowEvent('mousemove', (e: React.MouseEvent) =>
             setPosition({ x: e.clientX, y: e.clientY })
           )}
           Координаты мыши: {position.x}:{position.y}
@@ -23,7 +23,7 @@ const Interaction = () => {
         <br />
         <h3>Использование кастомного хука</h3>
         <DataProvider
-          renderContent={(data, isLoading) => (
+          renderContent={(data: Array<any>, isLoading: boolean) => (
             <Posts data={data} isLoading={isLoading} />
           )}
         />

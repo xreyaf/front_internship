@@ -1,12 +1,18 @@
+/* eslint-disable react/prefer-exact-props */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-export const ReposList = ({ repos }) => {
+const ReposList = ({ repos }: { repos: any }) => {
   return (
     <p style={{ whiteSpace: 'pre-line' }}>
       {repos
         .map(
-          (rep) =>
+          (rep: {
+            name: any;
+            created_at: string | number | Date;
+            updated_at: string | number | Date;
+            description: any;
+          }) =>
             `Имя репозитория: ${rep.name}, создан: ${new Date(
               rep.created_at
             ).toLocaleDateString()}, последнее обновление: ${new Date(
