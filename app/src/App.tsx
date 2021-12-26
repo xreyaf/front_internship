@@ -20,7 +20,6 @@ class App extends React.Component {
         <Suspense fallback={<div>Загрузка...</div>}>
           <Routes>
             <Route
-              exact
               path="/"
               element={
                 <>
@@ -29,9 +28,9 @@ class App extends React.Component {
                 </>
               }
             />
-            <Route exact path="/cards" element={<Cards />} />
-            <Route exact path="/forms" element={<Forms />} />
-            <Route exact path="/scripts" element={<Interaction />} />
+            <Route path="/cards" element={<Cards />} />
+            <Route path="/forms" element={<Forms />} />
+            <Route path="/scripts" element={<Interaction />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

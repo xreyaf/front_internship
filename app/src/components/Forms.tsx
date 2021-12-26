@@ -109,6 +109,7 @@ class Forms extends Component {
                   name="message"
                   id="message"
                   wrap="soft"
+                  // @ts-ignore
                   maxLength="200"
                 />
                 <br />

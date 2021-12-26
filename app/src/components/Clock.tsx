@@ -1,8 +1,17 @@
-/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
 
-export class Clock extends Component {
-  constructor(props) {
+type ClockProps = {};
+
+type ClockState = {
+  time: any;
+};
+
+export class Clock extends Component<ClockProps, ClockState> {
+  interval: number | undefined;
+
+  constructor(props: ClockProps) {
     super(props);
     this.state = {
       time: new Date()
@@ -10,7 +19,7 @@ export class Clock extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => {
+    this.interval = window.setInterval(() => {
       this.setState({
         time: new Date()
       });
@@ -18,8 +27,9 @@ export class Clock extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.time) {
-      document.title = `${this.state.time.toLocaleTimeString()}`;
+    const { time } = this.state;
+    if (time) {
+      document.title = `${time.toLocaleTimeString()}`;
     } else document.title = 'FRNTND';
   }
 

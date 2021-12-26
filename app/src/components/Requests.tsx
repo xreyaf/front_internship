@@ -1,6 +1,7 @@
+/* eslint-disable react/prefer-exact-props */
 import React, { useState } from 'react';
 
-export const Requests = () => {
+const Requests = () => {
   const [repos, setRepos] = useState([]);
   const [user, setUser] = useState('');
 
@@ -42,6 +43,7 @@ export const Requests = () => {
         throw error;
       }
     } catch (err) {
+      // @ts-ignore
       alert(`Error: ${err.message}`);
     }
   };
@@ -91,7 +93,12 @@ export const Requests = () => {
       <p style={{ whiteSpace: 'pre-line' }}>
         {repos
           .map(
-            (rep) =>
+            (rep: {
+              name: any;
+              created_at: string | number | Date;
+              updated_at: string | number | Date;
+              description: any;
+            }) =>
               `Имя репозитория: ${rep.name}, создан: ${new Date(
                 rep.created_at
               ).toLocaleDateString()}, последнее обновление: ${new Date(
