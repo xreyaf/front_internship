@@ -2,7 +2,13 @@
 import React from 'react';
 import { ReposList } from '.';
 
-const Posts = ({ data, isLoading }: { data: any; isLoading: any }) => {
+const Posts = ({
+  data,
+  isLoading
+}: {
+  data: Array<any>;
+  isLoading: boolean;
+}) => {
   return (
     <div>
       {isLoading && <div>Loading...</div>}
