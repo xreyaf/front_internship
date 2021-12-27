@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
@@ -5,15 +6,31 @@
 
 import React, { Component } from 'react';
 
+type Callback = {
+  (result?: string): void;
+};
+
 type ConcoleLogicProps = {};
 type ConcoleLogicState = {
   cURL: string;
   historyValue: string;
   cookieValue: string;
-  sessionValue: string;
+  sessionValue: Callback | string;
   location: string;
   locationLINK: string;
   appInfo: string;
+};
+
+type User = {
+  firstName: string;
+  age: number;
+  adress: {
+    country: string;
+    region: string;
+    city: string;
+  };
+  getFirstName(): void;
+  getAge(): void;
 };
 
 class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
@@ -37,31 +54,30 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
       const isBool = false;
       console.log(`Вводные: a=${a}, b=${b}, isBool=${isBool}`);
       const result = a > 50 && b < 12;
-      // @ts-ignore
-      const result1 = a > 50 || isBool === true;
+      const result1 = a > 50;
+      // || isBool === true;
       const result2 = !(a < 50);
       const result3 = undefined || a || null;
       const result4 = a && null && b;
 
       console.group('Логические обсчеты');
       console.log(result, `${a} > 50 && ${b} < 12`);
-      console.log(result1, `${a} > 50 || ${isBool} == true`);
+      console.log(result1, `${a} > 50 || ${isBool} === true`);
       console.log(result2, `!(${a} > 50)`);
       console.log(result3, `null || ${a} || undefined`, 'Первая истина');
       console.log(result4, `${a} && null && ${b}`, 'Первое ложное');
       console.groupEnd();
 
-      // @ts-ignore
-      if (a !== b) {
+      if (a > b) {
         alert(`false: ${a} != ${b} `);
       }
 
       throw new Error('Ошибочка вышла!');
     } catch (e) {
-      // @ts-ignore
-      console.log(e.name);
-      // @ts-ignore
-      console.log(e.message);
+      if (e instanceof Error) {
+        console.log(e.name);
+        console.log(e.message);
+      }
     } finally {
       alert('finally выполнится всегда');
     }
@@ -106,33 +122,33 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     getUser();
 
     console.group('Деструктуризация, spread, rest');
-    const odds = [1, 3, 5, 7];
-    const evens = [2, 4, 6, 8];
+    const odds: number[] = [1, 3, 5, 7];
+    const evens: number[] = [2, 4, 6, 8];
     console.log([...odds, 1337, ...evens]);
     const numbers = [5, 123, 52, 4, 10];
     console.log(Math.max(...numbers));
-    const sumOdds = (a: number, ...rest: undefined[]) =>
-      // @ts-ignore
+    const sumOdds = (a = 0, ...rest: number[]) =>
       a + rest.reduce((ab, i) => ab + i, 0);
-    const sumEvens = (a = 0, b = 0, ...rest: undefined[]) => {
+    const sumEvens = (a = 0, b = 0, ...rest: number[]) => {
       let result = a + b;
       for (const r of rest) {
-        // @ts-ignore
         result += r;
       }
       return result;
     };
-    // @ts-ignore
+
     console.log(sumOdds(...odds));
     console.log(sumEvens(...evens));
 
-    const sections = document.querySelectorAll('section');
-    // @ts-ignore
-    const arrayOfSections = [...sections];
-    // @ts-ignore
-    console.log(sections, Array.isArray());
-    // @ts-ignore
-    console.log(arrayOfSections, Array.isArray());
+    const sections: HTMLElement[] = Array.from(
+      document.querySelectorAll('section')
+    );
+
+    const arrayOfSections: HTMLElement[] = [...sections];
+
+    console.log(sections, Array.isArray(null));
+
+    console.log(arrayOfSections, Array.isArray(null));
 
     const [a, , ...other] = numbers;
     console.log(a, other);
@@ -219,7 +235,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
   };
 
   handleSetLs = () => {
-    const user: any = {
+    const user: User = {
       firstName: 'Peter',
       age: 30,
       adress: {
@@ -230,9 +246,8 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
       getFirstName() {
         console.log(this.firstName);
       },
-      getAgeArrow: null,
       getAge() {
-        this.getAgeArrow = () => console.log(this.age);
+        console.log(this.age);
       }
     };
     localStorage.setItem('user', JSON.stringify(user));
@@ -251,10 +266,8 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
   };
 
   handleSetSs = () => {
-    const value: any = sessionStorage.setItem(
-      'SessionInfo',
-      'Some session information'
-    );
+    const value: Callback = () =>
+      sessionStorage.setItem('SessionInfo', 'Some session information');
     this.setState({ sessionValue: value });
   };
 
