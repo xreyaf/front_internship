@@ -1,5 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 class Forms extends Component {
   render() {
@@ -109,8 +108,7 @@ class Forms extends Component {
                   name="message"
                   id="message"
                   wrap="soft"
-                  // @ts-ignore
-                  maxLength="200"
+                  maxLength={200}
                 />
                 <br />
                 <input

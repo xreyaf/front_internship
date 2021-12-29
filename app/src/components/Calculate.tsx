@@ -9,6 +9,8 @@ type CalculateState = {
   resultValue: number | undefined;
 };
 
+const readOnly = true;
+
 export class Calculate extends Component<CalculateProps, CalculateState> {
   constructor(props: CalculateProps) {
     super(props);
@@ -114,7 +116,7 @@ export class Calculate extends Component<CalculateProps, CalculateState> {
         <label className="interaction__label">Результат:</label>
         <br />
         <input
-          // readOnly={'true'}
+          readOnly={readOnly}
           className="interaction__text"
           type="text"
           id="result"

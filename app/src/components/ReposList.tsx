@@ -1,18 +1,11 @@
-/* eslint-disable react/prefer-exact-props */
-/* eslint-disable react/prop-types */
-import React from 'react';
+import { IRepos } from '../interfaces';
 
-const ReposList = ({ repos }: { repos: any }) => {
+const ReposList = ({ repos }: { repos: Array<any> }) => {
   return (
     <p style={{ whiteSpace: 'pre-line' }}>
       {repos
         .map(
-          (rep: {
-            name: any;
-            created_at: string | number | Date;
-            updated_at: string | number | Date;
-            description: any;
-          }) =>
+          (rep: IRepos) =>
             `Имя репозитория: ${rep.name}, создан: ${new Date(
               rep.created_at
             ).toLocaleDateString()}, последнее обновление: ${new Date(

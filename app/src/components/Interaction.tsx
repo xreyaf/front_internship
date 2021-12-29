@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Clock, Calculate, ConsoleLogic, Requests, DataProvider } from '.';
 import useWindowEvent from '../hooks/useWindowEvent';
-import Posts from './Posts';
+import Repos from './Repos';
 
 const Interaction = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -24,7 +24,7 @@ const Interaction = () => {
         <h3>Использование кастомного хука</h3>
         <DataProvider
           renderContent={(data: Array<any>, isLoading: boolean) => (
-            <Posts data={data} isLoading={isLoading} />
+            <Repos data={data} isLoading={isLoading} />
           )}
         />
       </div>

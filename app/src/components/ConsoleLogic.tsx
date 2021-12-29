@@ -1,10 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-plusplus */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-console */
-/* eslint-disable react/no-unused-class-component-methods */
-
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 type Callback = {
   (result?: string): void;
@@ -131,6 +125,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
       a + rest.reduce((ab, i) => ab + i, 0);
     const sumEvens = (a = 0, b = 0, ...rest: number[]) => {
       let result = a + b;
+
       for (const r of rest) {
         result += r;
       }
@@ -166,12 +161,11 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     console.groupEnd();
 
     function* genFunction(n = 10) {
-      for (let index = 0; index < n; index++) {
+      for (let index = 0; index < n; index += 1) {
         yield index;
       }
     }
     console.group('Генератор');
-    // @ts-ignore
     for (const i of genFunction(5)) {
       console.log(i);
     }
@@ -429,11 +423,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
         <p>{sessionValue}</p>
         <br />
 
-        <label
-          // type="button"
-          className="interaction__label">
-          Navigator
-        </label>
+        <label className="interaction__label">Navigator</label>
         <br />
         <button
           type="button"

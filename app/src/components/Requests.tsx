@@ -1,5 +1,5 @@
-/* eslint-disable react/prefer-exact-props */
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { IRepos } from '../interfaces';
 
 const Requests = () => {
   const [repos, setRepos] = useState([]);
@@ -43,8 +43,9 @@ const Requests = () => {
         throw error;
       }
     } catch (err) {
-      // @ts-ignore
-      alert(`Error: ${err.message}`);
+      if (err instanceof Error) {
+        alert(`Error: ${err.message}`);
+      }
     }
   };
 
@@ -93,12 +94,7 @@ const Requests = () => {
       <p style={{ whiteSpace: 'pre-line' }}>
         {repos
           .map(
-            (rep: {
-              name: any;
-              created_at: string | number | Date;
-              updated_at: string | number | Date;
-              description: any;
-            }) =>
+            (rep: IRepos) =>
               `Имя репозитория: ${rep.name}, создан: ${new Date(
                 rep.created_at
               ).toLocaleDateString()}, последнее обновление: ${new Date(

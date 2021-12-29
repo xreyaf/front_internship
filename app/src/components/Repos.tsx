@@ -1,8 +1,6 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
 import { ReposList } from '.';
 
-const Posts = ({
+const Repos = ({
   data,
   isLoading
 }: {
@@ -17,4 +15,4 @@ const Posts = ({
   );
 };
 
-export default Posts;
+export default Repos;

@@ -1,12 +1,10 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 
 class Cards extends Component {
-  handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+  handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     alert('Потверждено!');
-  }
+  };
 
   render() {
     return (
