@@ -1,6 +1,6 @@
 import useFetch from '../hooks/useFetch';
 
-const URL: string = 'https://api.github.com/users/xreyaf/repos';
+const URL = 'https://api.github.com/users/xreyaf/repos';
 
 const DataProvider = ({
   renderContent

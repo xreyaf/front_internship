@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => (
+const NotFound = React.memo(() => (
   <div className="container--nf">
     <br />
     <h1>404 error</h1>
@@ -8,6 +9,6 @@ const NotFound = () => (
     <br />
     <Link to="/">Вернуться на главную</Link>
   </div>
-);
+));
 
 export default NotFound;

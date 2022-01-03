@@ -1,1 +1,20 @@
 //dark mode
+body.dark-theme {
+  --first-color-light: hsl(var(--hue), var(--sat), 75%);
+  --first-color-lighten: hsl(var(--hue), var(--sat), 15%);
+  --title-color: hsl(var(--hue), 4%, 95%);
+  --text-color: hsl(var(--hue), 4%, 80%);
+  --body-color: hsl(var(--hue), 8%, 13%);
+  --container-color: hsl(var(--hue), 8%, 16%);
+  --scroll-bar-color: hsl(var(--hue), 4%, 32%);
+  --scroll-thumb-color: hsl(var(--hue), 4%, 24%);
+  --shadow-color: hsla(var(--hue), 4%, 95%, 0.15);
+}
+
+.dark-theme .footer {
+  background-color: var(--container-color);
+}
+
+.dark-theme .header {
+  background-color: var(--container-color);
+}

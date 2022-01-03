@@ -96,9 +96,9 @@ const Requests = () => {
           .map(
             (rep: IRepos) =>
               `Имя репозитория: ${rep.name}, создан: ${new Date(
-                rep.created_at
+                rep.createdAt
               ).toLocaleDateString()}, последнее обновление: ${new Date(
-                rep.updated_at
+                rep.updatedAt
               ).toLocaleDateString()}. Описание: ${rep.description} `
           )
           .join('\n')}
