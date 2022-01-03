@@ -4,14 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.tsx',
+  entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, './build')
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js']
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -21,13 +21,12 @@ module.exports = {
   ],
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
-      { test: /\.js$/, loader: 'source-map-loader' },
+      { test: /\.tsx?$/, exclude: /(node_modules)/, loader: 'ts-loader' },
       { test: /\.(js)$/, exclude: /(node_modules)/, use: 'babel-loader' },
       {
-        test: /\.(css)$/,
+        test: /\.(scss|css)$/,
         exclude: /(node_modules)/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(js|jsx)$/,
@@ -44,6 +43,7 @@ module.exports = {
     ]
   },
   devServer: {
+    hot: true,
     port: 3030
   }
 };
