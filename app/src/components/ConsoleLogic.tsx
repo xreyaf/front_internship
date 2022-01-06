@@ -41,7 +41,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     };
   }
 
-  handleClick = () => {
+  static handleClick = () => {
     try {
       const a = 100;
       const b = 10;
@@ -190,7 +190,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     }
   };
 
-  handleNavHistory = () => {
+  static handleNavHistory = () => {
     try {
       window.history.go(-1);
     } catch {
@@ -198,7 +198,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     }
   };
 
-  handleChangeHistory = () => {
+  static handleChangeHistory = () => {
     try {
       window.history.pushState(null, '', 'http://localhost:3000');
       window.history.go(0);
@@ -211,7 +211,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     this.setState({ cookieValue: document.cookie });
   };
 
-  handleSetCookie = () => {
+  static handleSetCookie = () => {
     document.cookie = `name=Roman; expires=${new Date(
       2022,
       0,
@@ -224,11 +224,11 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
     ).toUTCString()}`;
   };
 
-  handleChangeCookie = () => {
+  static handleChangeCookie = () => {
     document.cookie = 'name=Romul; max-age=5';
   };
 
-  handleSetLs = () => {
+  static handleSetLs = () => {
     const user: User = {
       firstName: 'Peter',
       age: 30,
@@ -323,7 +323,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
         <button
           type="button"
           className="interaction__button button"
-          onClick={this.handleClick}>
+          onClick={ConsoleLogic.handleClick}>
           гогого
         </button>
         <br />
@@ -349,13 +349,13 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
         <button
           type="button"
           className="navHistory interaction__button button"
-          onClick={this.handleNavHistory}>
+          onClick={ConsoleLogic.handleNavHistory}>
           Перейти
         </button>
         <button
           type="button"
           className="changeHistory interaction__button button"
-          onClick={this.handleChangeHistory}>
+          onClick={ConsoleLogic.handleChangeHistory}>
           Изменить
         </button>
         <p>{historyValue}</p>
@@ -366,7 +366,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
         <button
           type="button"
           className="setCookie interaction__button button"
-          onClick={this.handleSetCookie}>
+          onClick={ConsoleLogic.handleSetCookie}>
           Запись
         </button>
         <button
@@ -378,7 +378,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
         <button
           type="button"
           className="changeCookie interaction__button button"
-          onClick={this.handleChangeCookie}>
+          onClick={ConsoleLogic.handleChangeCookie}>
           Изменить
         </button>
         <p>{cookieValue}</p>
@@ -392,7 +392,7 @@ class ConsoleLogic extends Component<ConcoleLogicProps, ConcoleLogicState> {
         <button
           type="button"
           className="setLocal interaction__button button"
-          onClick={this.handleSetLs}>
+          onClick={ConsoleLogic.handleSetLs}>
           Запись LocalStorage
         </button>
         <button

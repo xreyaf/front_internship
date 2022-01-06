@@ -6,6 +6,7 @@ import { Header, Footer, Home, Article, Forms } from './components';
 import Cards from './components/Cards';
 import Interaction from './components/Interaction';
 import NotFound from './components/NotFound';
+import Redux from './components/Redux';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             <>
               <Home />
               <Article />
+              <Redux />
             </>
           }
         />

@@ -63,8 +63,8 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.2s all ease-in;
+  transition: 0.2s all ease-in;
 }
 
 h1,
@@ -124,8 +124,8 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.2s all ease-in;
+  transition: 0.2s all ease-in;
 }
 
 .nav {
@@ -414,8 +414,8 @@ img {
   background-color: var(--first-color-lighten);
   padding-bottom: 3rem;
   margin-top: 7rem;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.2s all ease-in;
+  transition: 0.2s all ease-in;
 }
 
 .footer__container {
@@ -610,6 +610,16 @@ img {
   }
 }
 
+.redux__title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--mb-0-75);
+}
+
+.redux__button {
+  margin: 0.5rem 1rem 0.5rem 0;
+}
+
 body.dark-theme {
   --first-color-light: hsl(var(--hue), var(--sat), 75%);
   --first-color-lighten: hsl(var(--hue), var(--sat), 15%);
@@ -623,5 +633,9 @@ body.dark-theme {
 }
 
 .dark-theme .footer {
+  background-color: var(--container-color);
+}
+
+.dark-theme .header {
   background-color: var(--container-color);
 }

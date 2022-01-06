@@ -27,7 +27,8 @@
     }
   },
   "rules": {
-    "no-var-requires": false,
+    "no-param-reassign": "off",
+    "no-var-requires": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/ban-types": "off",
     "no-use-before-define": "off",
