@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
 import {
+  amountAdded,
   decremented,
-  incremented,
-  amountAdded
-} from '../features/counter/counterSlice';
-import { useFetchBreedsQuery } from '../features/dogs/dogsApiSlice';
+  incremented
+} from '../redux-toolkit/app/features/counter/counterSlice';
+import { useFetchBreedsQuery } from '../redux-toolkit/app/features/dogs/dogsApiSlice';
+import { useAppDispatch, useAppSelector } from '../redux-toolkit/app/hooks';
 
-const Redux = () => {
+const ReduxToolkit = () => {
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
 
@@ -19,7 +19,7 @@ const Redux = () => {
       <div className="redux__container container ">
         <h1 className="redux__title">Немножко Redux</h1>
         <h2>Счетчик</h2>
-        <p>Count is {count}</p>
+        <p>Значение: {count}</p>
         <button
           type="button"
           className=" redux__button button"
@@ -86,4 +86,4 @@ const Redux = () => {
   );
 };
 
-export default Redux;
+export default ReduxToolkit;
