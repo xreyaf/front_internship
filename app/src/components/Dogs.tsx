@@ -36,22 +36,11 @@ class Dogs extends Component<MyProps, MyState> {
         <div>
           {this.state.doggys.dogs
             .filter((item: any, index: number) => index < 10)
-            .map(
-              (breed: {
-                id: React.Key | null | undefined;
-                name:
-                  | boolean
-                  | React.ReactChild
-                  | React.ReactFragment
-                  | React.ReactPortal
-                  | null
-                  | undefined;
-              }) => (
-                <div key={breed.id}>
-                  <p>{breed.name}</p>
-                </div>
-              )
-            )}
+            .map((breed: { id: string; name: string }) => (
+              <div key={breed.id}>
+                <p>{breed.name}</p>
+              </div>
+            ))}
         </div>
       </div>
     );
