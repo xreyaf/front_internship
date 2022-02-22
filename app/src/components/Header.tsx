@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../contexts/Theme.context';
 
 const Header = () => {
@@ -24,31 +25,31 @@ const Header = () => {
   return (
     <header className={`header ${isTop ? '' : 'scroll__header'}`} id="header">
       <nav className="nav container">
-        <a href="/" className="nav__logo">
+        <Link to="/" className="nav__logo">
           ФРНТНД
-        </a>
+        </Link>
 
         <div
           className={`nav__menu ${showMenu ? 'show__menu' : ''}`}
           id="nav-menu">
           <ul className="nav__list">
             <li className="nav__item">
-              <a href="cards" className="nav__link">
+              <Link to="cards" className="nav__link">
                 Карточки
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a href="forms" className="nav__link">
+              <Link to="forms" className="nav__link">
                 Формы
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a href="scripts" className="nav__link">
+              <Link to="scripts" className="nav__link">
                 Скрипты
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              {/* 
+              {/*
                   // @ts-ignore */}
               <box-icon
                 style={{ cursor: 'pointer' }}
@@ -70,7 +71,7 @@ const Header = () => {
           className="nav__toggle"
           id="nav-toggle"
           onClick={() => setShowMenu(!showMenu)}>
-          {/* 
+          {/*
             // @ts-ignore */}
           <box-icon name="menu" />
         </div>
