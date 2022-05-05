@@ -25,7 +25,7 @@ class Article extends Component {
               sapiente a vel porro enim repudiandae corporis laborum. Iure
               dignissimos totam ipsum, porro eaque error, deleniti explicabo
               distinctio commodi expedita, reprehenderit repellendus suscipit
-              quia omnis sit.
+              quia omnis sit.fghfghfghfghfghfghfghfghfh
             </p>
           </aside>
           <article className="article__data">
